@@ -1,3 +1,4 @@
+// ===== MENÚ HAMBURGUESA =====
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
 
@@ -11,13 +12,14 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// ===== GALERÍA =====
 const galleryData = {
     'blackwork': [
         'ancla.jpg',
-        'letrasmidivamifamilia.jpg',
+        'letrasmividamifamilia.jpg',
         'mujercalavera.jpg',
-        'piernas.jpg',
-        'silueta.jpg'
+        'silueta.jpg',
+        'IMG-20260731-WA0020.jpg'
     ],
     'color': [
         'deathwoman.jpg',
@@ -33,7 +35,6 @@ const galleryData = {
     ],
     'cover-ups': [
         'piernacover.jpg',
-        'delfin.jpg',
         'IMG-20260806-WA0051.jpg'
     ]
 };
@@ -62,6 +63,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
 renderGallery('blackwork');
 
+// ===== VIDEOS =====
 const videoList = [
     'VID-2026O630-WA0030.mp4',
     'VID-2026O714-WA0028.mp4',
@@ -90,68 +92,30 @@ videoList.forEach(video => {
     videosGrid.appendChild(div);
 });
 
+// ===== IDIOMAS (EN, DE, ES) =====
 const translations = {
     en: {
-        nav_inicio: 'Home',
         nav_galeria: 'Gallery',
         nav_videos: 'Videos',
-        nav_tatuador: 'Artist',
-        nav_contacto: 'Contact',
-        hero_title: 'Shikena Tattoo',
-        hero_subtitle: 'Art on skin',
-        hero_description: 'Every tattoo tells a story.',
-        hero_btn: 'View gallery',
         galeria_title: 'Gallery',
         videos_title: 'Videos',
-        about_title: 'The Artist',
-        about_name: 'Willy Tordera',
-        about_text1: 'With over 10 years of experience, Willy Tordera is an artist passionate about tattooing. Specialized in Blackwork, Color and Fine Line, every piece he creates is unique and personalized.',
-        about_text2: 'His style is characterized by precision in details and respect for anatomy, achieving tattoos that integrate perfectly with the body.',
-        contact_title: 'Contact',
-        contact_address: 'Barcelona, Spain / Zurich, Switzerland',
-        contact_whatsapp: '📱 WhatsApp: +34 657 38 20 39',
+        phone: '+34 657 38 20 39',
         footer_rights: 'All rights reserved'
     },
     de: {
-        nav_inicio: 'Startseite',
         nav_galeria: 'Galerie',
         nav_videos: 'Videos',
-        nav_tatuador: 'Künstler',
-        nav_contacto: 'Kontakt',
-        hero_title: 'Shikena Tattoo',
-        hero_subtitle: 'Kunst auf der Haut',
-        hero_description: 'Jedes Tattoo erzählt eine Geschichte.',
-        hero_btn: 'Galerie ansehen',
         galeria_title: 'Galerie',
         videos_title: 'Videos',
-        about_title: 'Der Tätowierer',
-        about_name: 'Willy Tordera',
-        about_text1: 'Mit über 10 Jahren Erfahrung ist Willy Tordera ein leidenschaftlicher Tattoo-Künstler. Spezialisiert auf Blackwork, Color und Fine Line, ist jedes seiner Werke einzigartig und persönlich.',
-        about_text2: 'Sein Stil zeichnet sich durch Präzision im Detail und Respekt vor der Anatomie aus, wodurch Tattoos entstehen, die sich perfekt in den Körper einfügen.',
-        contact_title: 'Kontakt',
-        contact_address: 'Barcelona, Spanien / Zurich, Schweiz',
-        contact_whatsapp: '📱 WhatsApp: +34 657 38 20 39',
+        phone: '+34 657 38 20 39',
         footer_rights: 'Alle Rechte vorbehalten'
     },
     es: {
-        nav_inicio: 'Inicio',
         nav_galeria: 'Galería',
         nav_videos: 'Videos',
-        nav_tatuador: 'Tatuador',
-        nav_contacto: 'Contacto',
-        hero_title: 'Shikena Tattoo',
-        hero_subtitle: 'Arte sobre la piel',
-        hero_description: 'Cada tatuaje cuenta una historia.',
-        hero_btn: 'Ver galería',
         galeria_title: 'Galería',
         videos_title: 'Videos',
-        about_title: 'El Tatuador',
-        about_name: 'Willy Tordera',
-        about_text1: 'Con más de 10 años de experiencia, Willy Tordera es un artista apasionado por el tatuaje. Especializado en Blackwork, Color y Fine Line, cada pieza que crea es única y personalizada.',
-        about_text2: 'Su estilo se caracteriza por la precisión en los detalles y el respeto por la anatomía, logrando tatuajes que se integran a la perfección con el cuerpo.',
-        contact_title: 'Contacto',
-        contact_address: 'Barcelona, España / Zurich, Suiza',
-        contact_whatsapp: '📱 WhatsApp: +34 657 38 20 39',
+        phone: '+34 657 38 20 39',
         footer_rights: 'Todos los derechos reservados'
     }
 };
@@ -166,12 +130,6 @@ function setLanguage(lang) {
             el.textContent = translations[lang][key];
         }
     });
-    document.querySelectorAll('[data-key-placeholder]').forEach(el => {
-        const key = el.dataset.keyPlaceholder;
-        if (translations[lang] && translations[lang][key]) {
-            el.placeholder = translations[lang][key];
-        }
-    });
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
@@ -183,5 +141,4 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     });
 });
 
-// Idioma por defecto: INGLÉS
 setLanguage('en');
