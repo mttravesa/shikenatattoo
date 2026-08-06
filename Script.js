@@ -34,7 +34,7 @@ const galleryData = {
     'cover-ups': [
         'piernacover.jpg',
         'delfin.jpg',
-        'arroz.jpg'
+        'IMG-20260806-WA0051.jpg'
     ]
 };
 
@@ -44,9 +44,9 @@ function renderGallery(category) {
     const images = galleryData[category] || [];
     galleryGrid.innerHTML = images.map(img => `
         <div class="gallery-item">
-            <img src="images/${category}/${img}" alt="${img.replace('.jpg', '')}" loading="lazy">
+            <img src="images/${category}/${img}" alt="${img.replace('.jpg', '').replace('.png', '')}" loading="lazy">
             <div class="overlay">
-                <p>${img.replace('.jpg', '').replace(/-/g, ' ')}</p>
+                <p>${img.replace('.jpg', '').replace('.png', '').replace(/-/g, ' ')}</p>
             </div>
         </div>
     `).join('');
@@ -72,8 +72,7 @@ const videoList = [
     'VID-2026O729-WA0071.mp4',
     'VID-2026O729-WA0072.mp4',
     'VID-2026O729-WA0073.mp4',
-    'VID-2026O729-WA0074.mp4',
-    'VID-coverup-delfin-arroz.mp4'
+    'VID-2026O729-WA0074.mp4'
 ];
 
 const videosGrid = document.getElementById('videosGrid');
