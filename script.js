@@ -12,7 +12,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ===== GALERÍA =====
+// ===== GALERÍA (con los nombres CORRECTOS de tus archivos) =====
 const galleryData = {
     'blackwork': [
         'ancla.jpg',
@@ -92,30 +92,33 @@ videoList.forEach(video => {
     videosGrid.appendChild(div);
 });
 
-// ===== IDIOMAS (EN, DE, ES) =====
+// ===== IDIOMAS =====
 const translations = {
     en: {
         nav_galeria: 'Gallery',
         nav_videos: 'Videos',
+        hero_quote: 'Every tattoo<br>tells a story.',
+        hero_btn: 'View gallery',
         galeria_title: 'Gallery',
         videos_title: 'Videos',
-        phone: '+34 657 38 20 39',
         footer_rights: 'All rights reserved'
     },
     de: {
         nav_galeria: 'Galerie',
         nav_videos: 'Videos',
+        hero_quote: 'Jedes Tattoo<br>erzählt eine Geschichte.',
+        hero_btn: 'Galerie ansehen',
         galeria_title: 'Galerie',
         videos_title: 'Videos',
-        phone: '+34 657 38 20 39',
         footer_rights: 'Alle Rechte vorbehalten'
     },
     es: {
         nav_galeria: 'Galería',
         nav_videos: 'Videos',
+        hero_quote: 'Cada tatuaje<br>cuenta una historia.',
+        hero_btn: 'Ver galería',
         galeria_title: 'Galería',
         videos_title: 'Videos',
-        phone: '+34 657 38 20 39',
         footer_rights: 'Todos los derechos reservados'
     }
 };
@@ -127,7 +130,7 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.dataset.key;
         if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
+            el.innerHTML = translations[lang][key];
         }
     });
     document.querySelectorAll('.lang-btn').forEach(btn => {
