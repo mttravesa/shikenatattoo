@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shikena Tattoo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="images/logo/logoblanco.png" alt="Shikena Tattoo" id="logo-img">
+            </a>
+            <div class="header-right">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav id="mainNav">
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link" data-key="nav_inicio">Inicio</a></li>
+                <li><a href="#galeria" class="nav-link" data-key="nav_galeria">Galería</a></li>
+                <li><a href="#videos" class="nav-link" data-key="nav_videos">Videos</a></li>
+                <li><a href="#tatuador" class="nav-link" data-key="nav_tatuador">Tatuador</a></li>
+                <li><a href="#contacto" class="nav-link" data-key="nav_contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="section hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title" data-key="hero_title">Shikena Tattoo</h1>
+                <p class="hero-subtitle" data-key="hero_subtitle">Arte sobre la piel</p>
+                <p class="hero-description" data-key="hero_description">
+                    Especialistas en Blackwork, Color y Fine Line. Cada tatuaje es una obra única.
+                </p>
+                <a href="#galeria" class="btn-primary" data-key="hero_btn">Ver galería</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera - Shikena Tattoo">
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="section gallery">
+        <div class="container">
+            <h2 class="section-title" data-key="galeria_title">Galería</h2>
+            <div class="gallery-tabs">
+                <button class="tab-btn active" data-category="blackwork">Blackwork</button>
+                <button class="tab-btn" data-category="color">Color</button>
+                <button class="tab-btn" data-category="fine-line">Fine Line</button>
+                <button class="tab-btn" data-category="cover-ups">Cover Ups</button>
+            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <section id="videos" class="section videos">
+        <div class="container">
+            <h2 class="section-title" data-key="videos_title">Videos</h2>
+            <div class="videos-grid" id="videosGrid"></div>
+        </div>
+    </section>
+
+    <section id="tatuador" class="section about">
+        <div class="container">
+            <h2 class="section-title" data-key="about_title">El Tatuador</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera con su familia">
+                </div>
+                <div class="about-text">
+                    <h3 data-key="about_name">Willy Tordera</h3>
+                    <p data-key="about_text1">
+                        Con más de 10 años de experiencia, Willy Tordera es un artista apasionado 
+                        por el tatuaje. Especializado en Blackwork, Color y Fine Line, cada pieza 
+                        que crea es única y personalizada.
+                    </p>
+                    <p data-key="about_text2">
+                        Su estilo se caracteriza por la precisión en los detalles y el respeto por 
+                        la anatomía, logrando tatuajes que se integran a la perfección con el cuerpo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <h2 class="section-title" data-key="contact_title">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-key="contact_address">📍 Barcelona, España / Zurich, Suiza</span></p>
+                    <p><i class="fab fa-whatsapp"></i> <span data-key="contact_whatsapp">📱 WhatsApp: +34 123 456 789</span></p>
+                    <p><i class="fas fa-envelope"></i> <span data-key="contact_email">✉️ shikena@tattoo.com</span></p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Tu nombre" data-key-placeholder="contact_name" required>
+                    <input type="email" placeholder="Tu email" data-key-placeholder="contact_email_input" required>
+                    <textarea placeholder="Tu mensaje" data-key-placeholder="contact_message" rows="4" required></textarea>
+                    <button type="submit" class="btn-primary" data-key="contact_send">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">Todos los derechos reservados</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
