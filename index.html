@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -34,7 +35,7 @@
                 </button>
             </div>
         </div>
-        <!-- Menú desplegable (solo Galería y Videos) -->
+        <!-- Menú desplegable -->
         <nav id="mainNav">
             <ul class="nav-menu">
                 <li><a href="#galeria" class="nav-link" data-key="nav_galeria">Galería</a></li>
@@ -43,17 +44,22 @@
         </nav>
     </header>
 
-    <!-- ===== PORTADA: 2 FOTOS + TELÉFONO ===== -->
-    <section id="inicio" class="section hero">
-        <div class="container hero-content">
+    <!-- ===== PORTADA FIJA (SIN SCROLL) ===== -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
             <div class="hero-images">
                 <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera tatuando" class="hero-img">
+                
+                <!-- FRASE ELEGANTE ENTRE LAS DOS FOTOS -->
+                <div class="hero-quote">
+                    <span class="quote-text" data-key="hero_quote">Cada tatuaje<br>cuenta una historia.</span>
+                </div>
+                
                 <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera con cliente" class="hero-img">
             </div>
-            <div class="hero-phone">
-                <i class="fas fa-phone"></i>
-                <span data-key="phone">+34 657 38 20 39</span>
-            </div>
+            <!-- BOTÓN PARA IR A GALERÍA -->
+            <a href="#galeria" class="btn-hero" data-key="hero_btn">Ver galería</a>
         </div>
     </section>
 
