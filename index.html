@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +10,24 @@
 </head>
 <body>
 
+    <!-- ==================== BOTÓN WHATSAPP FIJO ==================== -->
+    <a href="https://wa.me/34657382039" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ==================== HEADER ==================== -->
     <header>
         <div class="container header-container">
-            <a href="#" class="Logo">
+            <a href="#" class="logo">
                 <img src="images/Logo/logoblanco.png" alt="Shikena Tattoo" id="logo-img">
             </a>
             <div class="header-right">
                 <div class="language-selector">
-                    <button class="lang-btn active" data-lang="es">ES</button>
-                    <span class="lang-divider">|</span>
-                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
                     <span class="lang-divider">|</span>
                     <button class="lang-btn" data-lang="de">DE</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="es">ES</button>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                     <i class="fas fa-bars"></i>
@@ -30,22 +36,23 @@
         </div>
         <nav id="mainNav">
             <ul class="nav-menu">
-                <li><a href="#inicio" class="nav-link" data-key="nav_inicio">Inicio</a></li>
-                <li><a href="#galeria" class="nav-link" data-key="nav_galeria">Galería</a></li>
+                <li><a href="#inicio" class="nav-link" data-key="nav_inicio">Home</a></li>
+                <li><a href="#galeria" class="nav-link" data-key="nav_galeria">Gallery</a></li>
                 <li><a href="#videos" class="nav-link" data-key="nav_videos">Videos</a></li>
-                <li><a href="#tatuador" class="nav-link" data-key="nav_tatuador">Tatuador</a></li>
-                <li><a href="#contacto" class="nav-link" data-key="nav_contacto">Contacto</a></li>
+                <li><a href="#tatuador" class="nav-link" data-key="nav_tatuador">Artist</a></li>
+                <li><a href="#contacto" class="nav-link" data-key="nav_contacto">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- ==================== SECCIÓN INICIO ==================== -->
     <section id="inicio" class="section hero">
         <div class="container hero-content">
             <div class="hero-text">
                 <h1 class="hero-title" data-key="hero_title">Shikena Tattoo</h1>
                 <p class="hero-subtitle" data-key="hero_subtitle">Arte sobre la piel</p>
                 <p class="hero-description" data-key="hero_description">
-                    Especialistas en Blackwork, Color y Fine Line. Cada tatuaje es una obra única.
+                    Cada tatuaje cuenta una historia.
                 </p>
                 <a href="#galeria" class="btn-primary" data-key="hero_btn">Ver galería</a>
             </div>
@@ -55,6 +62,7 @@
         </div>
     </section>
 
+    <!-- ==================== SECCIÓN GALERÍA ==================== -->
     <section id="galeria" class="section gallery">
         <div class="container">
             <h2 class="section-title" data-key="galeria_title">Galería</h2>
@@ -68,6 +76,7 @@
         </div>
     </section>
 
+    <!-- ==================== SECCIÓN VIDEOS ==================== -->
     <section id="videos" class="section videos">
         <div class="container">
             <h2 class="section-title" data-key="videos_title">Videos</h2>
@@ -75,6 +84,7 @@
         </div>
     </section>
 
+    <!-- ==================== SECCIÓN TATUADOR ==================== -->
     <section id="tatuador" class="section about">
         <div class="container">
             <h2 class="section-title" data-key="about_title">El Tatuador</h2>
@@ -98,25 +108,20 @@
         </div>
     </section>
 
+    <!-- ==================== SECCIÓN CONTACTO (SIN FORMULARIO) ==================== -->
     <section id="contacto" class="section contact">
         <div class="container">
             <h2 class="section-title" data-key="contact_title">Contacto</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> <span data-key="contact_address">📍 Barcelona, España / Zurich, Suiza</span></p>
-                    <p><i class="fab fa-whatsapp"></i> <span data-key="contact_whatsapp">📱 WhatsApp: +34 123 456 789</span></p>
-                    <p><i class="fas fa-envelope"></i> <span data-key="contact_email">✉️ shikena@tattoo.com</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-key="contact_address">Barcelona, España / Zurich, Suiza</span></p>
+                    <p><i class="fab fa-whatsapp"></i> <span data-key="contact_whatsapp">📱 WhatsApp: +34 657 38 20 39</span></p>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Tu nombre" data-key-placeholder="contact_name" required>
-                    <input type="email" placeholder="Tu email" data-key-placeholder="contact_email_input" required>
-                    <textarea placeholder="Tu mensaje" data-key-placeholder="contact_message" rows="4" required></textarea>
-                    <button type="submit" class="btn-primary" data-key="contact_send">Enviar</button>
-                </form>
             </div>
         </div>
     </section>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">Todos los derechos reservados</span></p>
