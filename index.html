@@ -26,18 +26,13 @@
                 </div>
             </a>
             <div class="header-right">
-                <!-- DROPDOWN SOLO CON CATEGORÍAS -->
-                <div class="dropdown">
-                    <button class="dropdown-btn" id="dropdownBtn">
-                        <span id="selectedCategory">Gallery</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-content" id="dropdownContent">
-                        <a href="#" data-category="blackwork">Blackwork</a>
-                        <a href="#" data-category="color">Color</a>
-                        <a href="#" data-category="fine-line">Fine Line</a>
-                        <a href="#" data-category="cover-ups">Cover Ups</a>
-                    </div>
+                <!-- 3 IDIOMAS -->
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="es">ES</button>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                     <i class="fas fa-bars"></i>
@@ -46,44 +41,38 @@
         </div>
         <nav id="mainNav">
             <ul class="nav-menu">
-                <li><a href="#galeria" class="nav-link">Gallery</a></li>
+                <li><a href="#galeria" class="nav-link" data-key="nav_galeria">Gallery</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- ===== PORTADA CON SLIDER ===== -->
+    <!-- ===== PORTADA ===== -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <!-- SLIDER DE FOTOS -->
-            <div class="slider-container">
-                <div class="slider-track" id="sliderTrack">
-                    <div class="slide">
-                        <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera tatuando">
-                    </div>
-                    <div class="slide">
-                        <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera con cliente">
-                    </div>
+            <div class="hero-images">
+                <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera" class="hero-img">
+                <div class="hero-quote">
+                    <span class="quote-text" data-key="hero_quote">Every tattoo tells a story</span>
                 </div>
-                <button class="slider-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-                <button class="slider-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-                <div class="slider-dots">
-                    <span class="dot active" data-index="0"></span>
-                    <span class="dot" data-index="1"></span>
-                </div>
+                <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera" class="hero-img">
             </div>
-
-            <!-- FRASE DEBAJO -->
-            <div class="hero-quote">
-                <span class="quote-text">Every tattoo tells a story.</span>
-            </div>
+            <a href="#galeria" class="btn-hero" data-key="hero_btn">View gallery</a>
         </div>
     </section>
 
-    <!-- ===== GALERÍA ===== -->
+    <!-- ===== GALERÍA POR CATEGORÍAS (SIN VÍDEOS) ===== -->
     <section id="galeria" class="section gallery">
         <div class="container">
-            <h2 class="section-title" id="galleryTitle">Gallery</h2>
+            <h2 class="section-title" data-key="galeria_title">Gallery</h2>
+            
+            <!-- BOTONES DE CATEGORÍAS -->
+            <div class="gallery-tabs">
+                <button class="tab-btn active" data-category="blackwork">Blackwork</button>
+                <button class="tab-btn" data-category="color">Color</button>
+                <button class="tab-btn" data-category="fine-line">Fine Line</button>
+                <button class="tab-btn" data-category="cover-ups">Cover Ups</button>
+            </div>
 
             <!-- BLACKWORK -->
             <div id="blackwork" class="gallery-grid active-grid">
@@ -121,7 +110,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Shikena Tattoo - All rights reserved</p>
+            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">All rights reserved</span></p>
         </div>
     </footer>
 
