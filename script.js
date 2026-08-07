@@ -1,167 +1,308 @@
-/* ==========================================
-   SHIKENA TATTOO
-   SCRIPT.JS
-========================================== */
+// ======================================================
+// SHIKENA TATTOO
+// SCRIPT.JS
+// PARTE 1
+// ======================================================
 
-document.addEventListener("DOMContentLoaded", () => {
+// ==========================================
+// MENÚ MÓVIL
+// ==========================================
 
-    /* ==========================
-       LIGHTBOX
-    ========================== */
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
 
-    const galleryImages = document.querySelectorAll(".gallery img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".close");
+if(menuToggle){
 
-    galleryImages.forEach(img => {
+    menuToggle.addEventListener("click",()=>{
 
-        img.addEventListener("click", () => {
-
-            lightbox.style.display = "flex";
-
-            lightboxImg.src = img.src;
-
-        });
+        mainNav.classList.toggle("open");
 
     });
 
-    if(closeBtn){
+}
 
-        closeBtn.addEventListener("click", () => {
+// ==========================================
+// CERRAR MENÚ AL PULSAR UN ENLACE
+// ==========================================
 
-            lightbox.style.display = "none";
+document.querySelectorAll(".nav-link").forEach(link=>{
 
-        });
+    link.addEventListener("click",()=>{
 
-    }
-
-    if(lightbox){
-
-        lightbox.addEventListener("click",(e)=>{
-
-            if(e.target===lightbox){
-
-                lightbox.style.display="none";
-
-            }
-
-        });
-
-    }
-
-
-    /* ==========================
-       SCROLL SUAVE
-    ========================== */
-
-    document.querySelectorAll('nav a').forEach(anchor=>{
-
-        anchor.addEventListener("click",function(e){
-
-            e.preventDefault();
-
-            const destino=document.querySelector(this.getAttribute("href"));
-
-            if(destino){
-
-                destino.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
-
-            }
-
-        });
-
-    });
-
-
-    /* ==========================
-       ANIMACIÓN AL HACER SCROLL
-    ========================== */
-
-    const observer=new IntersectionObserver((entries)=>{
-
-        entries.forEach(entry=>{
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("visible");
-
-            }
-
-        });
-
-    },{
-
-        threshold:.15
-
-    });
-
-    document.querySelectorAll(".gallery-section,.video-section,.cta").forEach(sec=>{
-
-        observer.observe(sec);
+        mainNav.classList.remove("open");
 
     });
 
 });
 
+// ==========================================
+// HEADER AL HACER SCROLL
+// ==========================================
 
-/* ==========================================
-   BOTÓN VOLVER ARRIBA
-========================================== */
-
-const topButton=document.createElement("button");
-
-topButton.innerHTML="↑";
-
-topButton.className="topButton";
-
-document.body.appendChild(topButton);
+const header=document.getElementById("header");
 
 window.addEventListener("scroll",()=>{
 
-    if(window.scrollY>500){
+    if(window.scrollY>80){
 
-        topButton.style.opacity="1";
-
-        topButton.style.pointerEvents="auto";
+        header.style.background="rgba(5,5,5,.98)";
+        header.style.backdropFilter="blur(18px)";
+        header.style.borderBottom="1px solid rgba(255,255,255,.08)";
 
     }else{
 
-        topButton.style.opacity="0";
-
-        topButton.style.pointerEvents="none";
+        header.style.background="rgba(5,5,5,.92)";
+        header.style.backdropFilter="blur(14px)";
+        header.style.borderBottom="1px solid rgba(255,255,255,.05)";
 
     }
 
 });
 
-topButton.addEventListener("click",()=>{
+// ==========================================
+// SCROLL SUAVE
+// ==========================================
 
-    window.scrollTo({
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-        top:0,
+    anchor.addEventListener("click",function(e){
 
-        behavior:"smooth"
+        e.preventDefault();
+
+        const destino=document.querySelector(this.getAttribute("href"));
+
+        if(destino){
+
+            destino.scrollIntoView({
+
+                behavior:"smooth"
+
+            });
+
+        }
 
     });
 
 });
 
+// ==========================================
+// BOTONES GALERÍA
+// ==========================================
 
-/* ==========================================
-   AÑO AUTOMÁTICO FOOTER
-========================================== */
+const botones=document.querySelectorAll(".tab-btn");
 
-const year=new Date().getFullYear();
+const galerias=document.querySelectorAll(".gallery-grid");
 
-const copyright=document.querySelector(".copyright");
+botones.forEach(boton=>{
 
-if(copyright){
+    boton.addEventListener("click",()=>{
 
-    copyright.innerHTML=`© ${year} Shikena Tattoo · All Rights Reserved`;
+        botones.forEach(btn=>btn.classList.remove("active"));
+
+        boton.classList.add("active");
+
+        galerias.forEach(grid=>{
+
+            grid.classList.remove("active-grid");
+
+        });
+
+        const categoria=boton.dataset.category;
+
+        const destino=document.getElementById(categoria);
+
+        if(destino){
+
+            destino.classList.add("active-grid");
+
+        }
+
+    });
+
+});
+
+// ==========================================
+// EFECTO HOVER TÁCTIL
+// ==========================================
+
+document.querySelectorAll(".gallery-item").forEach(item=>{
+
+    item.addEventListener("touchstart",()=>{
+
+        item.classList.add("hover");
+
+    });
+
+    item.addEventListener("touchend",()=>{
+
+        setTimeout(()=>{
+
+            item.classList.remove("hover");
+
+        },250);
+
+    });
+
+});
+// ======================================================
+// SHIKENA TATTOO
+// SCRIPT.JS
+// PARTE 2
+// ======================================================
+
+// ==========================================
+// LISTA DE VÍDEOS
+// ==========================================
+
+const videoList = [
+
+"VID-2026O630-WA0030.mp4",
+"VID-2026O714-WA0028.mp4",
+"VID-2026O714-WA0030.mp4",
+"VID-2026O728-WA0045.mp4",
+"VID-2026O729-WA0059.mp4",
+"VID-2026O729-WA0060.mp4",
+"VID-2026O729-WA0071.mp4",
+"VID-2026O729-WA0072.mp4",
+"VID-2026O729-WA0073.mp4",
+"VID-2026O729-WA0074.mp4"
+
+];
+
+const videosGrid = document.getElementById("videosGrid");
+
+if(videosGrid){
+
+    videoList.forEach(video=>{
+
+        const card=document.createElement("div");
+
+        card.className="video-item";
+
+        card.innerHTML=`
+
+            <video controls preload="metadata">
+
+                <source src="videos/${video}" type="video/mp4">
+
+                Tu navegador no soporta vídeo.
+
+            </video>
+
+            <div class="video-info">
+
+                ${video.replace(".mp4","")}
+
+            </div>
+
+        `;
+
+        videosGrid.appendChild(card);
+
+    });
 
 }
+
+// ==========================================
+// LIGHTBOX GALERÍA
+// ==========================================
+
+const lightbox=document.createElement("div");
+
+lightbox.id="lightbox";
+
+lightbox.innerHTML=`
+
+<span id="closeLightbox">&times;</span>
+
+<img id="lightboxImage">
+
+`;
+
+document.body.appendChild(lightbox);
+
+const lightboxImg=document.getElementById("lightboxImage");
+
+const closeLightbox=document.getElementById("closeLightbox");
+
+document.querySelectorAll(".gallery-item img").forEach(img=>{
+
+    img.addEventListener("click",()=>{
+
+        lightbox.classList.add("show");
+
+        lightboxImg.src=img.src;
+
+        lightboxImg.alt=img.alt;
+
+        document.body.style.overflow="hidden";
+
+    });
+
+});
+
+closeLightbox.addEventListener("click",()=>{
+
+    lightbox.classList.remove("show");
+
+    document.body.style.overflow="auto";
+
+});
+
+lightbox.addEventListener("click",(e)=>{
+
+    if(e.target===lightbox){
+
+        lightbox.classList.remove("show");
+
+        document.body.style.overflow="auto";
+
+    }
+
+});
+
+// ==========================================
+// ANIMACIONES AL HACER SCROLL
+// ==========================================
+
+const observer=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("visible");
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+document.querySelectorAll(
+
+".section,.gallery-item,.video-item,.hero-img"
+
+).forEach(el=>{
+
+    el.classList.add("hidden");
+
+    observer.observe(el);
+
+});
+
+// ==========================================
+// EFECTO SUAVE EN BOTONES
+// ==========================================
+
+document.querySelectorAll("button,.btn-hero,.contact-btn").forEach(btn=>{
+
+    btn.addEventListener("mouseenter",()=>{
+
+        btn.style.transition=".3s";
+
+    });
+
+});
