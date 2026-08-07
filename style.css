@@ -6,8 +6,7 @@
 }
 
 html {
-    height: 100%;
-    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -15,13 +14,6 @@ body {
     background: #0a0a0a;
     color: #ffffff;
     line-height: 1.6;
-    height: 100%;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-}
-
-.hero, .section {
-    scroll-snap-align: start;
 }
 
 .container {
@@ -40,7 +32,7 @@ img {
     display: block;
 }
 
-/* ===== WHATSAPP ===== */
+/* ===== WHATSAPP FIJO ===== */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
@@ -92,9 +84,8 @@ header {
 }
 
 .logo-img {
-    height: 90px;
-    width: auto;
     display: block;
+    width: auto;
 }
 
 .logo-luna {
@@ -112,7 +103,6 @@ header {
     gap: 20px;
 }
 
-/* ===== IDIOMAS ===== */
 .language-selector {
     display: flex;
     align-items: center;
@@ -136,8 +126,8 @@ header {
 }
 
 .lang-btn.active {
-    color: #fff;
     background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .lang-divider {
@@ -176,15 +166,31 @@ nav.open {
     font-weight: 500;
     font-size: 15px;
     transition: color 0.3s;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
 }
 
 .nav-link:hover {
     color: #fff;
 }
 
+.nav-link:hover::after {
+    width: 100%;
+}
+
 /* ===== PORTADA ===== */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -251,30 +257,7 @@ nav.open {
     white-space: nowrap;
 }
 
-.btn-hero {
-    display: inline-block;
-    background: transparent;
-    color: #fff;
-    padding: 14px 45px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 16px;
-    border: 2px solid rgba(255,255,255,0.3);
-    cursor: pointer;
-    transition: all 0.4s;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: -5px;
-}
-
-.btn-hero:hover {
-    background: #fff;
-    color: #0a0a0a;
-    border-color: #fff;
-    transform: scale(1.05);
-}
-
-/* ===== GALERÍA ===== */
+/* ===== SECCIONES ===== */
 .section {
     padding: 120px 0 80px;
     scroll-margin-top: 80px;
@@ -292,7 +275,7 @@ nav.open {
     -webkit-text-fill-color: transparent;
 }
 
-/* ===== GALERÍA POR CATEGORÍAS ===== */
+/* ===== GALERÍA ===== */
 .gallery-grid {
     display: none;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -338,7 +321,7 @@ nav.open {
     position: relative;
     overflow: hidden;
     border-radius: 16px;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1/1;
     background: #1a1a1a;
     cursor: pointer;
 }
@@ -376,6 +359,33 @@ nav.open {
     text-transform: capitalize;
 }
 
+/* ===== VIDEOS ===== */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.video-item {
+    background: #141414;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.video-item video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+.video-item .video-info {
+    padding: 15px;
+    color: #aaa;
+    font-size: 14px;
+}
+
 /* ===== FOOTER ===== */
 footer {
     background: #050505;
@@ -392,30 +402,35 @@ footer {
         flex-direction: column;
         gap: 30px;
     }
+
     .hero-img {
         width: 80%;
         max-width: 350px;
         height: 350px;
     }
+
     .hero-quote {
         width: 80%;
     }
+
     .quote-text {
         font-size: 1.5rem;
         white-space: normal;
     }
+
     .section-title {
         font-size: 2.2rem;
     }
-    .logo-img {
+
+    /* Tamaño de logos mejorado */
+    .logo-luna {
+        height: 80px;
+    }
+
+    .logo-letras {
         height: 60px;
     }
-    .logo-luna {
-        height: 65px;
-    }
-    .logo-letras {
-        height: 50px;
-    }
+
     .logo-wrapper {
         margin-left: -10px;
     }
@@ -425,31 +440,36 @@ footer {
     .menu-toggle {
         display: block;
     }
+
     .nav-menu {
         flex-direction: column;
         align-items: center;
         gap: 15px;
         padding: 20px 0;
     }
+
     .hero-img {
         width: 90%;
         height: 280px;
     }
+
     .hero-quote {
         width: 90%;
     }
+
     .quote-text {
         font-size: 1.3rem;
         white-space: normal;
     }
-    .btn-hero {
-        padding: 12px 30px;
-        font-size: 14px;
-        margin-top: 0;
-    }
+
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+
     .whatsapp-float {
         width: 50px;
         height: 50px;
@@ -457,22 +477,25 @@ footer {
         bottom: 20px;
         right: 20px;
     }
+
     .section {
         padding: 100px 0 60px;
     }
-    .logo-img {
+
+    /* Tamaño de logos legible en móviles */
+    .logo-luna {
+        height: 70px;
+    }
+
+    .logo-letras {
         height: 50px;
     }
-    .logo-luna {
-        height: 55px;
-    }
-    .logo-letras {
-        height: 42px;
-    }
+
     .logo-wrapper {
         margin-left: 0;
         gap: 0;
     }
+
     .hero {
         padding-top: 100px;
     }
