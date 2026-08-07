@@ -4,120 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shikena Tattoo</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ===== WHATSAPP FIJO ===== -->
-    <a href="https://wa.me/34657382039" target="_blank" class="whatsapp-float">
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/34657382039" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ===== HEADER ===== -->
-    <header>
-        <div class="container header-container">
-            <a href="#inicio" class="logo">
-                <div class="logo-wrapper">
-                    <img src="images/Logo/logolunanegra.png" alt="Shikena Tattoo Luna" class="logo-img logo-luna">
-                    <img src="images/Logo/logoletrasnegras.png" alt="Shikena Tattoo Letras" class="logo-img logo-letras">
-                </div>
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- LOGOTIPO COMPLETO (ICONO LUNA + LETRAS) -->
+            <a href="#hero" class="brand-logo">
+                <img src="images/Logo/logolunanegra.png" alt="Shikena Tattoo Luna" class="logo-icon">
+                <img src="images/Logo/logoletrasnegras.png" alt="Shikena Tattoo Letras" class="logo-text">
             </a>
-            <div class="header-right">
-                <div class="language-selector">
+
+            <!-- MENÚ PRINCIPAL -->
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active" data-key="nav_home">Home</a></li>
+                    <li><a href="#gallery" class="nav-link" data-key="nav_gallery">Gallery</a></li>
+                    <li><a href="#videos" class="nav-link" data-key="nav_videos">Videos</a></li>
+                </ul>
+            </nav>
+
+            <!-- SELECTOR DE IDIOMA TRILINGÜE (EN / DE / ES) -->
+            <div class="header-actions">
+                <div class="lang-selector">
                     <button class="lang-btn active" data-lang="en">EN</button>
-                    <span class="lang-divider">|</span>
+                    <span class="lang-sep">|</span>
                     <button class="lang-btn" data-lang="de">DE</button>
-                    <span class="lang-divider">|</span>
+                    <span class="lang-sep">|</span>
                     <button class="lang-btn" data-lang="es">ES</button>
                 </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation">
                     <i class="fas fa-bars"></i>
-                </button> 
+                </button>
             </div>
         </div>
-        <nav id="mainNav">
-            <ul class="nav-menu">
-                <li><a href="#inicio" class="nav-link" data-key="nav_inicio">Inicio</a></li>
-                <li><a href="#galeria" class="nav-link" data-key="nav_galeria">Galería</a></li>
-                <li><a href="#videos" class="nav-link" data-key="nav_videos">Videos</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- ===== PORTADA ===== -->
-    <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-images">
-                <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera tatuando" class="hero-img">
-                <div class="hero-quote">
-                    <span class="quote-text" data-key="hero_quote">Every tattoo tells a story</span>
+    <!-- PORTADA (HERO SECTION) CON FRASE Y FOTOS DEL TATUADOR -->
+    <section id="hero" class="hero-section">
+        <div class="hero-backdrop"></div>
+        <div class="hero-container">
+            <div class="artist-showcase">
+                <div class="artist-card left">
+                    <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera Tatuando" class="artist-img">
                 </div>
-                <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera con cliente" class="hero-img">
+                <div class="hero-quote-box">
+                    <span class="quote-mark">“</span>
+                    <h1 class="quote-text" data-key="hero_quote">Every tattoo tells a story</h1>
+                    <span class="quote-subtitle" data-key="artist_title">Willy Tordera — Tattoo Artist</span>
+                </div>
+                <div class="artist-card right">
+                    <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera en el Estudio" class="artist-img">
+                </div>
             </div>
-            <!-- Botón eliminado a petición -->
         </div>
     </section>
 
-    <!-- ===== GALERÍA ===== -->
-    <section id="galeria" class="section gallery">
+    <!-- GALERÍA (4 SUBAPARTADOS) -->
+    <section id="gallery" class="section-block gallery-section">
         <div class="container">
-            <h2 class="section-title" data-key="galeria_title">Galería</h2>
-            <!-- BOTONES DE CATEGORÍAS -->
-            <div class="gallery-tabs">
-                <button class="tab-btn active" data-category="blackwork">Blackwork</button>
-                <button class="tab-btn" data-category="color">Color</button>
-                <button class="tab-btn" data-category="fine-line">Fine Line</button>
-                <button class="tab-btn" data-category="cover-ups">Cover Ups</button>
+            <div class="section-header">
+                <h2 class="section-title" data-key="gallery_title">Gallery</h2>
+                <div class="gold-divider"></div>
             </div>
-            
-            <!-- BLACKWORK -->
+
+            <!-- PESTAÑAS DE SUBAPARTADOS -->
+            <div class="category-tabs">
+                <button class="cat-btn active" data-category="blackwork">Blackwork</button>
+                <button class="cat-btn" data-category="color">Color</button>
+                <button class="cat-btn" data-category="fine-line">Fine Line</button>
+                <button class="cat-btn" data-category="cover-ups">Cover Ups</button>
+            </div>
+
+            <!-- 1. Blackwork -->
             <div id="blackwork" class="gallery-grid active-grid">
-                <div class="gallery-item"><img src="images/Blackwork/ancla.jpg" alt="ancla"><div class="overlay"><p>ancla</p></div></div>
-                <div class="gallery-item"><img src="images/Blackwork/letrasmividamifamilia.jpg" alt="letrasmividamifamilia"><div class="overlay"><p>letrasmividamifamilia</p></div></div>
-                <div class="gallery-item"><img src="images/Blackwork/mujercalavera.jpg" alt="mujercalavera"><div class="overlay"><p>mujercalavera</p></div></div>
-                <div class="gallery-item"><img src="images/Blackwork/silueta.jpg" alt="silueta"><div class="overlay"><p>silueta</p></div></div>
-                <div class="gallery-item"><img src="images/Blackwork/IMG-20260731-WA0020.jpg" alt="IMG-20260731-WA0020"><div class="overlay"><p>IMG-20260731-WA0020</p></div></div>
+                <div class="gallery-card"><img src="images/Blackwork/ancla.jpg" alt="Ancla"><div class="card-overlay"><span class="card-tag">Ancla</span></div></div>
+                <div class="gallery-card"><img src="images/Blackwork/letrasmividamifamilia.jpg" alt="Letras"><div class="card-overlay"><span class="card-tag">Mi Vida Mi Familia</span></div></div>
+                <div class="gallery-card"><img src="images/Blackwork/mujercalavera.jpg" alt="Mujer Calavera"><div class="card-overlay"><span class="card-tag">Mujer Calavera</span></div></div>
+                <div class="gallery-card"><img src="images/Blackwork/silueta.jpg" alt="Silueta"><div class="card-overlay"><span class="card-tag">Silueta</span></div></div>
+                <div class="gallery-card"><img src="images/Blackwork/IMG-20260731-WA0020.jpg" alt="Blackwork Work"><div class="card-overlay"><span class="card-tag">Blackwork Custom</span></div></div>
             </div>
-            
-            <!-- COLOR -->
+
+            <!-- 2. Color -->
             <div id="color" class="gallery-grid">
-                <div class="gallery-item"><img src="images/Color/deathwoman.jpg" alt="deathwoman"><div class="overlay"><p>deathwoman</p></div></div>
-                <div class="gallery-item"><img src="images/Color/india.jpg" alt="india"><div class="overlay"><p>india</p></div></div>
-                <div class="gallery-item"><img src="images/Color/indiazul.jpg" alt="indiazul"><div class="overlay"><p>indiazul</p></div></div>
-                <div class="gallery-item"><img src="images/Color/stich.jpg" alt="stich"><div class="overlay"><p>stich</p></div></div>
+                <div class="gallery-card"><img src="images/Color/deathwoman.jpg" alt="Death Woman"><div class="card-overlay"><span class="card-tag">Death Woman</span></div></div>
+                <div class="gallery-card"><img src="images/Color/india.jpg" alt="India"><div class="card-overlay"><span class="card-tag">India</span></div></div>
+                <div class="gallery-card"><img src="images/Color/indiazul.jpg" alt="India Azul"><div class="card-overlay"><span class="card-tag">India Azul</span></div></div>
+                <div class="gallery-card"><img src="images/Color/stich.jpg" alt="Stitch"><div class="card-overlay"><span class="card-tag">Stitch</span></div></div>
             </div>
-            
-            <!-- FINE LINE -->
+
+            <!-- 3. Fine Line -->
             <div id="fine-line" class="gallery-grid">
-                <div class="gallery-item"><img src="images/Fine%20Line/cruz.jpg" alt="cruz"><div class="overlay"><p>cruz</p></div></div>
-                <div class="gallery-item"><img src="images/Fine%20Line/lazo.jpg" alt="lazo"><div class="overlay"><p>lazo</p></div></div>
-                <div class="gallery-item"><img src="images/Fine%20Line/leon.jpg" alt="leon"><div class="overlay"><p>leon</p></div></div>
-                <div class="gallery-item"><img src="images/Fine%20Line/plumaestilografica.jpg" alt="plumaestilografica"><div class="overlay"><p>plumaestilografica</p></div></div>
+                <div class="gallery-card"><img src="images/Fine%20Line/cruz.jpg" alt="Cruz"><div class="card-overlay"><span class="card-tag">Cruz</span></div></div>
+                <div class="gallery-card"><img src="images/Fine%20Line/lazo.jpg" alt="Lazo"><div class="card-overlay"><span class="card-tag">Lazo</span></div></div>
+                <div class="gallery-card"><img src="images/Fine%20Line/leon.jpg" alt="León"><div class="card-overlay"><span class="card-tag">León</span></div></div>
+                <div class="gallery-card"><img src="images/Fine%20Line/plumaestilografica.jpg" alt="Pluma"><div class="card-overlay"><span class="card-tag">Pluma Estilográfica</span></div></div>
             </div>
-            
-            <!-- COVER UPS -->
+
+            <!-- 4. Cover Ups -->
             <div id="cover-ups" class="gallery-grid">
-                <div class="gallery-item"><img src="images/Cover%20Ups/piernacover.jpg" alt="piernacover"><div class="overlay"><p>piernacover</p></div></div>
-                <div class="gallery-item"><img src="images/Cover%20Ups/IMG-20260806-WA0051.jpg" alt="IMG-20260806-WA0051"><div class="overlay"><p>IMG-20260806-WA0051</p></div></div>
+                <div class="gallery-card"><img src="images/Cover%20Ups/piernacover.jpg" alt="Pierna Cover"><div class="card-overlay"><span class="card-tag">Pierna Cover</span></div></div>
+                <div class="gallery-card"><img src="images/Cover%20Ups/IMG-20260806-WA0051.jpg" alt="Cover Up Work"><div class="card-overlay"><span class="card-tag">Cover Up Custom</span></div></div>
             </div>
         </div>
     </section>
 
-    <!-- ===== VIDEOS ===== -->
-    <section id="videos" class="section videos">
+    <!-- SECCIÓN DE VÍDEOS -->
+    <section id="videos" class="section-block videos-section">
         <div class="container">
-            <h2 class="section-title" data-key="videos_title">Videos</h2>
+            <div class="section-header">
+                <h2 class="section-title" data-key="videos_title">Videos</h2>
+                <div class="gold-divider"></div>
+            </div>
             <div class="videos-grid" id="videosGrid"></div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">All rights reserved</span></p>
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="images/Logo/logolunanegra.png" alt="Luna" class="footer-logo">
+                <span>SHIKENA TATTOO</span>
+            </div>
+            <p>&copy; 2026 Shikena Tattoo — <span data-key="footer_rights">All rights reserved</span></p>
         </div>
     </footer>
 
