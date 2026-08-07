@@ -12,90 +12,65 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ===== SLIDER =====
-const sliderTrack = document.getElementById('sliderTrack');
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-let currentIndex = 0;
-const totalSlides = slides.length;
+// ===== BOTONES DE GALERÍA =====
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
 
-function goToSlide(index) {
-    if (index < 0) index = totalSlides - 1;
-    if (index >= totalSlides) index = 0;
-    currentIndex = index;
-    sliderTrack.style.transform = `translateX(-${index * 50}%)`;
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-}
-
-prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
-});
-
-// Cambio automático cada 5 segundos
-let slideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
-
-// Pausar auto-slide al hacer hover
-const sliderContainer = document.querySelector('.slider-container');
-sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
-sliderContainer.addEventListener('mouseleave', () => {
-    slideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
-});
-
-// ===== DROPDOWN =====
-const dropdownBtn = document.getElementById('dropdownBtn');
-const dropdownContent = document.getElementById('dropdownContent');
-const selectedCategory = document.getElementById('selectedCategory');
-
-dropdownBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dropdownContent.classList.toggle('show');
-    dropdownBtn.classList.toggle('active');
-});
-
-// Cerrar dropdown al hacer clic fuera
-document.addEventListener('click', () => {
-    dropdownContent.classList.remove('show');
-    dropdownBtn.classList.remove('active');
-});
-
-// ===== GALERÍA (cambiar al hacer clic en el dropdown) =====
-document.querySelectorAll('.dropdown-content a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const category = this.dataset.category;
-        
-        // Cambiar texto del botón
-        selectedCategory.textContent = this.textContent;
-        
-        // Ocultar todos los grids
         document.querySelectorAll('.gallery-grid').forEach(grid => {
             grid.classList.remove('active-grid');
         });
-        
-        // Mostrar el grid correspondiente
-        document.getElementById(category).classList.add('active-grid');
-        
-        // Cambiar el título de la galería
-        document.getElementById('galleryTitle').textContent = this.textContent;
-        
-        // Marcar el elemento activo en el dropdown
-        document.querySelectorAll('.dropdown-content a').forEach(a => a.classList.remove('active-category'));
-        this.classList.add('active-category');
-        
-        // Cerrar el dropdown
-        dropdownContent.classList.remove('show');
-        dropdownBtn.classList.remove('active');
+
+        const targetId = this.dataset.category;
+        document.getElementById(targetId).classList.add('active-grid');
     });
 });
 
-// ===== CERRAR MENÚ AL HACER SCROLL =====
-document.addEventListener('scroll', () => {
-    dropdownContent.classList.remove('show');
-    dropdownBtn.classList.remove('active');
+// ===== IDIOMAS (EN, DE, ES) =====
+const translations = {
+    en: {
+        nav_galeria: 'Gallery',
+        hero_quote: 'Every tattoo tells a story',
+        hero_btn: 'View gallery',
+        galeria_title: 'Gallery',
+        footer_rights: 'All rights reserved'
+    },
+    de: {
+        nav_galeria: 'Galerie',
+        hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
+        hero_btn: 'Galerie ansehen',
+        galeria_title: 'Galerie',
+        footer_rights: 'Alle Rechte vorbehalten'
+    },
+    es: {
+        nav_galeria: 'Galería',
+        hero_quote: 'Cada tatuaje cuenta una historia',
+        hero_btn: 'Ver galería',
+        galeria_title: 'Galería',
+        footer_rights: 'Todos los derechos reservados'
+    }
+};
+
+let currentLang = 'en';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.dataset.key;
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+    });
 });
+
+setLanguage('en');
