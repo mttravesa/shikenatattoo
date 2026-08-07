@@ -34,14 +34,15 @@
                 </div>
                 <div class="dropdown">
                     <button class="dropdown-btn" id="dropdownBtn">
-                        <span id="selectedCategory">Cover Ups</span>
+                        <span id="selectedCategory" data-key="cover_ups">Cover Ups</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content" id="dropdownContent">
-                        <a href="blackwork.html">Blackwork</a>
-                        <a href="color.html">Color</a>
-                        <a href="fine-line.html">Fine Line</a>
-                        <a href="cover-ups.html">Cover Ups</a>
+                        <a href="blackwork.html" data-key="blackwork">Blackwork</a>
+                        <a href="color.html" data-key="color">Color</a>
+                        <a href="fine-line.html" data-key="fine_line">Fine Line</a>
+                        <a href="cover-ups.html" data-key="cover_ups">Cover Ups</a>
+                        <a href="../videos/videos.html" style="border-top:1px solid rgba(255,255,255,0.1); margin-top:5px; padding-top:10px;" data-key="videos">Videos</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +52,7 @@
     <!-- ===== GALERÍA COVER UPS ===== -->
     <section class="section gallery-page">
         <div class="container">
-            <h1 class="section-title">Cover Ups</h1>
+            <h1 class="section-title" data-key="cover_ups">Cover Ups</h1>
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="../images/Cover%20Ups/piernacover.jpg" alt="Cover Ups">
@@ -71,7 +72,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Shikena Tattoo - All rights reserved</p>
+            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">All rights reserved</span></p>
         </div>
     </footer>
 
