@@ -1,57 +1,435 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blackwork - Shikena Tattoo</title>
-  <link rel="stylesheet" href="../style.css">
-</head>
-<body>
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="../index.html">
-        <img src="../images/Logo/logonegro.png" alt="Shikena Tattoo Logo" class="nav-logo">
-      </a>
-    </div>
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+}
 
-    <div class="nav-right">
-      <select id="lang-select" class="lang-picker">
-        <option value="en" selected>EN</option>
-        <option value="es">ES</option>
-        <option value="de">DE</option>
-      </select>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    <div class="nav-menu" id="nav-menu">
-      <ul>
-        <li><a href="../index.html" data-i18n="home">Home</a></li>
-        <li><a href="blackwork.html">Blackwork</a></li>
-        <li><a href="color.html">Color</a></li>
-        <li><a href="fine-line.html">Fine Line</a></li>
-        <li><a href="cover-ups.html">Cover Ups</a></li>
-      </ul>
-    </div>
-  </nav>
+img {
+    max-width: 100%;
+    display: block;
+}
 
-  <header class="header-galeria">
-    <h1>Blackwork</h1>
-  </header>
+/* ===== WHATSAPP ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s;
+}
 
-  <main class="galeria-grid">
-    <img src="../images/Blackwork/ancla.jpg" alt="Tattoo Anchor">
-    <img src="../images/Blackwork/letrasmividamifamilia.jpg" alt="Tattoo Lettering">
-    <img src="../images/Blackwork/mujercalavera.jpg" alt="Tattoo Skull Woman">
-    <img src="../images/Blackwork/silueta.jpg" alt="Tattoo Silhouette">
-    <img src="../images/Blackwork/IMG-20260731-WA0020.jpg" alt="Blackwork Tattoo">
-  </main>
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
 
-  <script src="../script.js"></script>
-</body>
-</html>
+/* ===== HEADER ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: -20px;
+}
+
+.logo-img {
+    height: 90px;
+    width: auto;
+    display: block;
+}
+
+.logo-luna {
+    height: 95px;
+}
+
+.logo-letras {
+    height: 75px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    color: #fff;
+}
+
+.lang-btn.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-divider {
+    color: #444;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+nav.open {
+    max-height: 300px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 15px;
+}
+
+.nav-link {
+    color: #aaa;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active-page {
+    color: #fff;
+}
+
+.nav-link.active-page::after {
+    width: 100%;
+}
+
+/* ===== PORTADA ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 40px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.hero-images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.hero-img {
+    width: 35%;
+    max-width: 400px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+
+.hero-quote {
+    width: 25%;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255,255,255,0.1);
+    line-height: 1.2;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.btn-hero {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    padding: 14px 45px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-hero:hover {
+    background: #fff;
+    color: #0a0a0a;
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+/* ===== GALERÍA ===== */
+.section {
+    padding: 120px 0 80px;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff 60%, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 1 / 1;
+    background: #1a1a1a;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item .overlay p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #050505;
+    padding: 30px 0;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .hero-images {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .hero-img {
+        width: 80%;
+        max-width: 350px;
+        height: 350px;
+    }
+    .hero-quote {
+        width: 80%;
+    }
+    .quote-text {
+        font-size: 1.5rem;
+        white-space: normal;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .logo-img {
+        height: 60px;
+    }
+    .logo-luna {
+        height: 65px;
+    }
+    .logo-letras {
+        height: 50px;
+    }
+    .logo-wrapper {
+        margin-left: -10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+    }
+    .hero-img {
+        width: 90%;
+        height: 280px;
+    }
+    .hero-quote {
+        width: 90%;
+    }
+    .quote-text {
+        font-size: 1.3rem;
+        white-space: normal;
+    }
+    .btn-hero {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .section {
+        padding: 100px 0 60px;
+    }
+    .logo-img {
+        height: 50px;
+    }
+    .logo-luna {
+        height: 55px;
+    }
+    .logo-letras {
+        height: 42px;
+    }
+    .logo-wrapper {
+        margin-left: 0;
+        gap: 0;
+    }
+    .hero {
+        padding-top: 100px;
+    }
+  }
