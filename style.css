@@ -1,80 +1,57 @@
-body {
-  background-color: #121212;
-  color: #ffffff;
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackwork - Shikena Tattoo</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
 
-/* Header & Portada */
-.hero {
-  padding: 40px 20px;
-  background-color: #1a1a1a;
-}
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="../index.html">
+        <img src="../images/Logo/logonegro.png" alt="Shikena Tattoo Logo" class="nav-logo">
+      </a>
+    </div>
 
-.logo {
-  max-width: 180px;
-  height: auto;
-}
+    <div class="nav-right">
+      <select id="lang-select" class="lang-picker">
+        <option value="en" selected>EN</option>
+        <option value="es">ES</option>
+        <option value="de">DE</option>
+      </select>
 
-/* Tarjetas de Categorías en Portada */
-.galeria-menu {
-  padding: 40px 20px;
-}
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
-.menu-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+    <div class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="../index.html" data-i18n="home">Home</a></li>
+        <li><a href="blackwork.html">Blackwork</a></li>
+        <li><a href="color.html">Color</a></li>
+        <li><a href="fine-line.html">Fine Line</a></li>
+        <li><a href="cover-ups.html">Cover Ups</a></li>
+      </ul>
+    </div>
+  </nav>
 
-.card-link {
-  text-decoration: none;
-}
+  <header class="header-galeria">
+    <h1>Blackwork</h1>
+  </header>
 
-.card {
-  background-color: #242424;
-  border: 1px solid #333;
-  padding: 30px 40px;
-  border-radius: 8px;
-  color: #fff;
-  transition: transform 0.2s, border-color 0.2s;
-}
+  <main class="galeria-grid">
+    <img src="../images/Blackwork/ancla.jpg" alt="Tattoo Anchor">
+    <img src="../images/Blackwork/letrasmividamifamilia.jpg" alt="Tattoo Lettering">
+    <img src="../images/Blackwork/mujercalavera.jpg" alt="Tattoo Skull Woman">
+    <img src="../images/Blackwork/silueta.jpg" alt="Tattoo Silhouette">
+    <img src="../images/Blackwork/IMG-20260731-WA0020.jpg" alt="Blackwork Tattoo">
+  </main>
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #ff4500;
-}
-
-/* Formato de la Galería de Fotos */
-.header-galeria {
-  padding: 20px;
-  background: #1a1a1a;
-}
-
-.btn-volver {
-  color: #ff4500;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.galeria-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.galeria-grid img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #333;
-}
+  <script src="../script.js"></script>
+</body>
+</html>
