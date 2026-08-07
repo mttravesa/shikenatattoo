@@ -1,64 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shikena Tattoo - Studio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shikena Tattoo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navegación Superior -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="index.html">
-        <img src="images/Logo/logonegro.png" alt="Shikena Tattoo Logo" class="nav-logo">
-      </a>
-    </div>
+    <!-- ===== WHATSAPP FIJO ===== -->
+    <a href="https://wa.me/34657382039" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <div class="nav-right">
-      <select id="lang-select" class="lang-picker">
-        <option value="en" selected>EN</option>
-        <option value="es">ES</option>
-        <option value="de">DE</option>
-      </select>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-wrapper">
+                    <img src="images/Logo/logolunanegra.png" alt="Shikena Tattoo" class="logo-img logo-luna">
+                    <img src="images/Logo/logoletrasnegras.png" alt="Shikena Tattoo" class="logo-img logo-letras">
+                </div>
+            </a>
+            <div class="header-right">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav id="mainNav">
+            <ul class="nav-menu">
+                <li><a href="galerias/blackwork.html" class="nav-link" data-key="nav_blackwork">Blackwork</a></li>
+                <li><a href="galerias/color.html" class="nav-link" data-key="nav_color">Color</a></li>
+                <li><a href="galerias/fine-line.html" class="nav-link" data-key="nav_fine">Fine Line</a></li>
+                <li><a href="galerias/cover-ups.html" class="nav-link" data-key="nav_cover">Cover Ups</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+    <!-- ===== PORTADA ===== -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-images">
+                <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera" class="hero-img">
+                <div class="hero-quote">
+                    <span class="quote-text" data-key="hero_quote">Every tattoo tells a story</span>
+                </div>
+                <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera" class="hero-img">
+            </div>
+            <a href="galerias/blackwork.html" class="btn-hero" data-key="hero_btn">View gallery</a>
+        </div>
+    </section>
 
-    <div class="nav-menu" id="nav-menu">
-      <ul>
-        <li><a href="index.html" data-i18n="home">Home</a></li>
-        <li><a href="galerias/blackwork.html">Blackwork</a></li>
-        <li><a href="galerias/color.html">Color</a></li>
-        <li><a href="galerias/fine-line.html">Fine Line</a></li>
-        <li><a href="galerias/cover-ups.html">Cover Ups</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">All rights reserved</span></p>
+        </div>
+    </footer>
 
-  <!-- Presentación Portada -->
-  <header class="hero">
-    <h1>Shikena Tattoo</h1>
-    <p class="tagline" data-i18n="tagline">Custom Tattoo Art • Exclusive Designs</p>
-  </header>
-
-  <section class="bio-section">
-    <h2 data-i18n="about_title">The Artist</h2>
-    <div class="bio-container">
-      <img src="images/Fotos tatuador/ChatGPT Image 6 ago 2026, 22_20_57.png" alt="Tattoo Artist" class="foto-tatuador">
-      <p data-i18n="about_text">Welcome to my portfolio. Explore the different styles in the top menu to see my latest work.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Shikena Tattoo. <span data-i18n="rights">All rights reserved.</span></p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
