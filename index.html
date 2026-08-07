@@ -26,17 +26,25 @@
                 </div>
             </a>
             <div class="header-right">
-                <!-- DROPDOWN SOLO CON CATEGORÍAS -->
+                <!-- DROPDOWN CON GALERÍA Y VÍDEOS -->
                 <div class="dropdown">
                     <button class="dropdown-btn" id="dropdownBtn">
-                        <span id="selectedCategory">Gallery</span>
+                        <span id="selectedCategory">Menu</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content" id="dropdownContent">
-                        <a href="#" data-category="blackwork">Blackwork</a>
-                        <a href="#" data-category="color">Color</a>
-                        <a href="#" data-category="fine-line">Fine Line</a>
-                        <a href="#" data-category="cover-ups">Cover Ups</a>
+                        <!-- Submenú GALERÍA -->
+                        <div class="dropdown-submenu">
+                            <a href="#" class="dropdown-submenu-btn" id="gallerySubmenuBtn">Gallery</a>
+                            <div class="dropdown-submenu-content" id="gallerySubmenuContent">
+                                <a href="#" data-category="blackwork">Blackwork</a>
+                                <a href="#" data-category="color">Color</a>
+                                <a href="#" data-category="fine-line">Fine Line</a>
+                                <a href="#" data-category="cover-ups">Cover Ups</a>
+                            </div>
+                        </div>
+                        <!-- VÍDEOS -->
+                        <a href="#videos" id="videosLink">Videos</a>
                     </div>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Menú">
@@ -47,6 +55,7 @@
         <nav id="mainNav">
             <ul class="nav-menu">
                 <li><a href="#galeria" class="nav-link">Gallery</a></li>
+                <li><a href="#videos" class="nav-link">Videos</a></li>
             </ul>
         </nav>
     </header>
@@ -101,6 +110,14 @@
                 <div class="gallery-item"><img src="images/Cover%20Ups/piernacover.jpg" alt="piernacover"><div class="overlay"><p>piernacover</p></div></div>
                 <div class="gallery-item"><img src="images/Cover%20Ups/IMG-20260806-WA0051.jpg" alt="IMG-20260806-WA0051"><div class="overlay"><p>IMG-20260806-WA0051</p></div></div>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== VÍDEOS ===== -->
+    <section id="videos" class="section videos">
+        <div class="container">
+            <h2 class="section-title">Videos</h2>
+            <div class="videos-grid" id="videosGrid"></div>
         </div>
     </section>
 
