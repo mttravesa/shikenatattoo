@@ -71,7 +71,7 @@ header {
     align-items: center;
 }
 
-/* ===== LOGOS (más grandes) ===== */
+/* ===== LOGOS ===== */
 .logo-wrapper {
     display: flex;
     align-items: center;
@@ -204,43 +204,7 @@ header {
     color: #fff;
 }
 
-.menu-toggle {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    display: none;
-}
-
-nav {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-
-nav.open {
-    max-height: 200px;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding-top: 15px;
-}
-
-.nav-link {
-    color: #aaa;
-    font-weight: 500;
-    font-size: 15px;
-    transition: color 0.3s;
-}
-
-.nav-link:hover {
-    color: #fff;
-}
+/* ===== ELIMINADO EL MENÚ HAMBURGUESA ===== */
 
 /* ===== PORTADA ===== */
 .hero {
@@ -435,15 +399,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    .nav-menu {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 20px 0;
-    }
+    /* El menú hamburguesa ya no existe, así que no hace falta mostrarlo */
     .language-selector {
         gap: 4px;
     }
