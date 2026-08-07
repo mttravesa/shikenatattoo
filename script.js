@@ -70,42 +70,33 @@ document.addEventListener('keydown', (e) => {
 // ============================================================
 const translations = {
     en: {
-        // Menú principal
         gallery: 'Gallery',
         blackwork: 'Blackwork',
         color: 'Color',
         fine_line: 'Fine Line',
         cover_ups: 'Cover Ups',
         videos: 'Videos',
-        // Portada
         hero_quote: 'Every tattoo tells a story',
-        // Footer
         footer_rights: 'All rights reserved'
     },
     de: {
-        // Menú principal
         gallery: 'Galerie',
         blackwork: 'Blackwork',
         color: 'Color',
         fine_line: 'Fine Line',
         cover_ups: 'Cover Ups',
         videos: 'Videos',
-        // Portada
         hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
-        // Footer
         footer_rights: 'Alle Rechte vorbehalten'
     },
     es: {
-        // Menú principal
         gallery: 'Galería',
         blackwork: 'Blackwork',
         color: 'Color',
         fine_line: 'Fine Line',
         cover_ups: 'Cover Ups',
         videos: 'Videos',
-        // Portada
         hero_quote: 'Cada tatuaje cuenta una historia',
-        // Footer
         footer_rights: 'Todos los derechos reservados'
     }
 };
@@ -113,11 +104,13 @@ const translations = {
 // Idioma actual (por defecto inglés)
 let currentLang = 'en';
 
-// Función para cambiar el idioma
+// ============================================================
+// 4. FUNCIÓN PARA CAMBIAR IDIOMA (CORREGIDA)
+// ============================================================
 function setLanguage(lang) {
     currentLang = lang;
     
-    // Recorrer todos los elementos con data-key
+    // 1. Cambiar todos los textos con data-key
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.dataset.key;
         if (translations[lang] && translations[lang][key]) {
@@ -125,24 +118,31 @@ function setLanguage(lang) {
         }
     });
     
-    // Actualizar botones de idioma (clase 'active')
+    // 2. Actualizar botones de idioma: SOLO UNO ACTIVO
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
+        btn.classList.remove('active'); // ← ELIMINA TODOS LOS ACTIVE
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active'); // ← SOLO PONE ACTIVE AL SELECCIONADO
+        }
     });
 }
 
-// Asignar evento a los botones de idioma
+// ============================================================
+// 5. ASIGNAR EVENTO A LOS BOTONES DE IDIOMA
+// ============================================================
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         setLanguage(btn.dataset.lang);
     });
 });
 
-// Establecer idioma por defecto (inglés)
+// ============================================================
+// 6. ESTABLECER IDIOMA POR DEFECTO (INGLÉS)
+// ============================================================
 setLanguage('en');
 
 // ============================================================
-// 4. LOG (para depuración)
+// 7. LOG (para depuración)
 // ============================================================
 console.log('✅ Script cargado correctamente');
 console.log('📝 Idiomas disponibles:', Object.keys(translations));
