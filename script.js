@@ -1,100 +1,68 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  // -------------------------------------------------------------
+  // 1. MODAL / AMPLIADOR DE IMÁGENES
+  // -------------------------------------------------------------
+  
+  // Crear elementos del modal dinámicamente si no existen
+  const modal = document.createElement("div");
+  modal.id = "image-modal";
+  modal.style.cssText = `
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  `;
 
-    // Cambios de categorías en Galería
-    const categoryButtons = document.querySelectorAll('.cat-btn');
-    const galleryGrids = document.querySelectorAll('.gallery-grid');
+  const modalImg = document.createElement("img");
+  modalImg.style.cssText = `
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    object-fit: contain;
+  `;
 
-    categoryButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            categoryButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
+  modal.appendChild(modalImg);
+  document.body.appendChild(modal);
 
-            galleryGrids.forEach(grid => grid.classList.remove('active-grid'));
-            const targetGrid = document.getElementById(this.dataset.category);
-            if (targetGrid) targetGrid.classList.add('active-grid');
-        });
+  // Escuchar clics en las imágenes dentro de la clase .galeria-grid
+  const galeriaImagenes = document.querySelectorAll(".galeria-grid img");
+
+  galeriaImagenes.forEach((img) => {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", () => {
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modal.style.display = "flex";
     });
+  });
 
-    // Inyección de Vídeos con los nombres exactos proporcionados
-    const videoList = [
-        'VID-20260630-WA0030.mp4',
-        'VID-20260714-WA0028.mp4',
-        'VID-20260714-WA0030.mp4',
-        'VID-20260728-WA0045.mp4',
-        'VID-20260729-WA0059.mp4',
-        'VID-20260729-WA0060.mp4',
-        'VID-20260729-WA0071.mp4',
-        'VID-20260729-WA0072.mp4',
-        'VID-20260729-WA0073.mp4',
-        'VID-20260729-WA0074.mp4'
-    ];
+  // Cerrar el modal al hacer clic en cualquier parte de la pantalla
+  modal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 
-    const videosGrid = document.getElementById('videosGrid');
-    if (videosGrid) {
-        videoList.forEach(videoFile => {
-            const card = document.createElement('div');
-            card.className = 'video-card';
-            card.innerHTML = `
-                <video controls preload="metadata">
-                    <source src="videos/${videoFile}" type="video/mp4">
-                </video>
-                <div class="video-caption">${videoFile}</div>
-            `;
-            videosGrid.appendChild(card);
-        });
+  // Cerrar modal con la tecla ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "flex") {
+      modal.style.display = "none";
     }
+  });
 
-    // Traducción dinámica Trilingüe (Inglés por defecto, Alemán y Español)
-    const translations = {
-        en: {
-            nav_home: 'Home',
-            nav_gallery: 'Gallery',
-            nav_videos: 'Videos',
-            hero_quote: 'Every tattoo tells a story',
-            artist_title: 'Willy Tordera — Tattoo Artist',
-            gallery_title: 'Gallery',
-            videos_title: 'Videos',
-            footer_rights: 'All rights reserved'
-        },
-        de: {
-            nav_home: 'Startseite',
-            nav_gallery: 'Galerie',
-            nav_videos: 'Videos',
-            hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
-            artist_title: 'Willy Tordera — Tätowierer',
-            gallery_title: 'Galerie',
-            videos_title: 'Videos',
-            footer_rights: 'Alle Rechte vorbehalten'
-        },
-        es: {
-            nav_home: 'Inicio',
-            nav_gallery: 'Galería',
-            nav_videos: 'Videos',
-            hero_quote: 'Cada tatuaje cuenta una historia',
-            artist_title: 'Willy Tordera — Tatuador',
-            gallery_title: 'Galería',
-            videos_title: 'Videos',
-            footer_rights: 'Todos los derechos reservados'
-        }
-    };
-
-    function setLanguage(lang) {
-        document.querySelectorAll('[data-key]').forEach(element => {
-            const key = element.dataset.key;
-            if (translations[lang] && translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            }
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-    });
-
-    // Idioma inicial: Inglés
-    setLanguage('en');
+  // -------------------------------------------------------------
+  // 2. EFECTO SUAVE AL CARGAR
+  // -------------------------------------------------------------
+  document.body.style.opacity = "0";
+  document.body.style.transition = "opacity 0.4s ease-in-out";
+  
+  setTimeout(() => {
+    document.body.style.opacity = "1";
+  }, 50);
 });
