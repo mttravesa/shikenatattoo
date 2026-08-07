@@ -1,57 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blackwork - Shikena Tattoo</title>
-  <link rel="stylesheet" href="../style.css">
-</head>
-<body>
+// ===== MENÚ HAMBURGUESA =====
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
 
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="../index.html">
-        <img src="../images/Logo/logonegro.png" alt="Shikena Tattoo Logo" class="nav-logo">
-      </a>
-    </div>
+menuToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('open');
+});
 
-    <div class="nav-right">
-      <select id="lang-select" class="lang-picker">
-        <option value="en" selected>EN</option>
-        <option value="es">ES</option>
-        <option value="de">DE</option>
-      </select>
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+    });
+});
 
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+// ===== IDIOMAS =====
+const translations = {
+    en: {
+        nav_blackwork: 'Blackwork',
+        nav_color: 'Color',
+        nav_fine: 'Fine Line',
+        nav_cover: 'Cover Ups',
+        hero_quote: 'Every tattoo tells a story',
+        hero_btn: 'View gallery',
+        footer_rights: 'All rights reserved'
+    },
+    de: {
+        nav_blackwork: 'Blackwork',
+        nav_color: 'Color',
+        nav_fine: 'Fine Line',
+        nav_cover: 'Cover Ups',
+        hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
+        hero_btn: 'Galerie ansehen',
+        footer_rights: 'Alle Rechte vorbehalten'
+    },
+    es: {
+        nav_blackwork: 'Blackwork',
+        nav_color: 'Color',
+        nav_fine: 'Fine Line',
+        nav_cover: 'Cover Ups',
+        hero_quote: 'Cada tatuaje cuenta una historia',
+        hero_btn: 'Ver galería',
+        footer_rights: 'Todos los derechos reservados'
+    }
+};
 
-    <div class="nav-menu" id="nav-menu">
-      <ul>
-        <li><a href="../index.html" data-i18n="home">Home</a></li>
-        <li><a href="blackwork.html">Blackwork</a></li>
-        <li><a href="color.html">Color</a></li>
-        <li><a href="fine-line.html">Fine Line</a></li>
-        <li><a href="cover-ups.html">Cover Ups</a></li>
-      </ul>
-    </div>
-  </nav>
+let currentLang = 'en';
 
-  <header class="header-galeria">
-    <h1>Blackwork</h1>
-  </header>
+function setLanguage(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.dataset.key;
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+}
 
-  <main class="galeria-grid">
-    <img src="../images/Blackwork/ancla.jpg" alt="Tattoo Anchor">
-    <img src="../images/Blackwork/letrasmividamifamilia.jpg" alt="Tattoo Lettering">
-    <img src="../images/Blackwork/mujercalavera.jpg" alt="Tattoo Skull Woman">
-    <img src="../images/Blackwork/silueta.jpg" alt="Tattoo Silhouette">
-    <img src="../images/Blackwork/IMG-20260731-WA0020.jpg" alt="Blackwork Tattoo">
-  </main>
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+    });
+});
 
-  <script src="../script.js"></script>
-</body>
-</html>
+setLanguage('en');
