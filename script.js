@@ -12,56 +12,23 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ===== GALERÍA =====
-const galleryData = {
-    'blackwork': [
-        'ancla.jpg',
-        'letrasmividamifamilia.jpg',
-        'mujercalavera.jpg',
-        'silueta.jpg',
-        'IMG-20260731-WA0020.jpg'
-    ],
-    'color': [
-        'deathwoman.jpg',
-        'india.jpg',
-        'indiazul.jpg',
-        'stich.jpg'
-    ],
-    'fine-line': [
-        'cruz.jpg',
-        'lazo.jpg',
-        'leon.jpg',
-        'plumaestilografica.jpg'
-    ],
-    'cover-ups': [
-        'piernacover.jpg',
-        'IMG-20260806-WA0051.jpg'
-    ]
-};
-
-const galleryGrid = document.getElementById('galleryGrid');
-
-function renderGallery(category) {
-    const images = galleryData[category] || [];
-    galleryGrid.innerHTML = images.map(img => `
-        <div class="gallery-item">
-            <img src="images/${category}/${img}" alt="${img.replace('.jpg', '').replace('.png', '')}" loading="lazy">
-            <div class="overlay">
-                <p>${img.replace('.jpg', '').replace('.png', '').replace(/-/g, ' ')}</p>
-            </div>
-        </div>
-    `).join('');
-}
-
+// ===== BOTONES DE GALERÍA =====
 document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function() {
+        // Quitar 'active' de todos los botones
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderGallery(btn.dataset.category);
+        this.classList.add('active');
+
+        // Ocultar todos los grids
+        document.querySelectorAll('.gallery-grid').forEach(grid => {
+            grid.classList.remove('active-grid');
+        });
+
+        // Mostrar el grid correspondiente
+        const targetId = this.dataset.category;
+        document.getElementById(targetId).classList.add('active-grid');
     });
 });
-
-renderGallery('blackwork');
 
 // ===== VIDEOS =====
 const videoList = [
@@ -92,12 +59,12 @@ videoList.forEach(video => {
     videosGrid.appendChild(div);
 });
 
-// ===== IDIOMAS (FRASE SIN PUNTO) =====
+// ===== IDIOMAS =====
 const translations = {
     en: {
         nav_galeria: 'Gallery',
         nav_videos: 'Videos',
-        hero_quote: 'Every tattoo<br>tells a story',
+        hero_quote: 'Every tattoo tells a story',
         hero_btn: 'View gallery',
         galeria_title: 'Gallery',
         videos_title: 'Videos',
@@ -106,7 +73,7 @@ const translations = {
     de: {
         nav_galeria: 'Galerie',
         nav_videos: 'Videos',
-        hero_quote: 'Jedes Tattoo<br>erzählt eine Geschichte',
+        hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
         hero_btn: 'Galerie ansehen',
         galeria_title: 'Galerie',
         videos_title: 'Videos',
@@ -115,7 +82,7 @@ const translations = {
     es: {
         nav_galeria: 'Galería',
         nav_videos: 'Videos',
-        hero_quote: 'Cada tatuaje<br>cuenta una historia',
+        hero_quote: 'Cada tatuaje cuenta una historia',
         hero_btn: 'Ver galería',
         galeria_title: 'Galería',
         videos_title: 'Videos',
@@ -130,7 +97,7 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.dataset.key;
         if (translations[lang] && translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
+            el.textContent = translations[lang][key];
         }
     });
     document.querySelectorAll('.lang-btn').forEach(btn => {
