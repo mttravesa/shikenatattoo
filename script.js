@@ -101,16 +101,15 @@ const translations = {
     }
 };
 
-// Idioma actual (por defecto inglés)
+// ============================================================
+// 4. FUNCIÓN PARA CAMBIAR IDIOMA (CON LIMPIEZA TOTAL)
+// ============================================================
 let currentLang = 'en';
 
-// ============================================================
-// 4. FUNCIÓN PARA CAMBIAR IDIOMA (CORREGIDA)
-// ============================================================
 function setLanguage(lang) {
     currentLang = lang;
     
-    // 1. Cambiar todos los textos con data-key
+    // Cambiar todos los textos con data-key
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.dataset.key;
         if (translations[lang] && translations[lang][key]) {
@@ -118,32 +117,40 @@ function setLanguage(lang) {
         }
     });
     
-    // 2. Actualizar botones de idioma: SOLO UNO ACTIVO
+    // LIMPIAR TODOS LOS BOTONES (eliminar clase 'active' de todos)
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active'); // ← ELIMINA TODOS LOS ACTIVE
+        btn.classList.remove('active');
+    });
+    
+    // ACTIVAR SOLO EL BOTÓN DEL IDIOMA SELECCIONADO
+    document.querySelectorAll('.lang-btn').forEach(btn => {
         if (btn.dataset.lang === lang) {
-            btn.classList.add('active'); // ← SOLO PONE ACTIVE AL SELECCIONADO
+            btn.classList.add('active');
         }
     });
 }
 
 // ============================================================
-// 5. ASIGNAR EVENTO A LOS BOTONES DE IDIOMA
+// 5. ESPERAR A QUE LA PÁGINA ESTÉ COMPLETAMENTE CARGADA
 // ============================================================
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✅ Página cargada. Inicializando idiomas...');
+    
+    // Asignar evento a los botones de idioma
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            setLanguage(this.dataset.lang);
+        });
     });
+    
+    // Establecer idioma por defecto (inglés)
+    setLanguage('en');
+    
+    console.log('🌐 Idioma actual:', currentLang);
 });
 
 // ============================================================
-// 6. ESTABLECER IDIOMA POR DEFECTO (INGLÉS)
-// ============================================================
-setLanguage('en');
-
-// ============================================================
-// 7. LOG (para depuración)
+// 6. LOG (para depuración)
 // ============================================================
 console.log('✅ Script cargado correctamente');
 console.log('📝 Idiomas disponibles:', Object.keys(translations));
-console.log('🌐 Idioma actual:', currentLang);
