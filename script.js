@@ -1,68 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // -------------------------------------------------------------
-  // 1. MODAL / AMPLIADOR DE IMÁGENES
-  // -------------------------------------------------------------
-  
-  // Crear elementos del modal dinámicamente si no existen
-  const modal = document.createElement("div");
-  modal.id = "image-modal";
-  modal.style.cssText = `
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  `;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackwork - Shikena Tattoo</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
 
-  const modalImg = document.createElement("img");
-  modalImg.style.cssText = `
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    object-fit: contain;
-  `;
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="../index.html">
+        <img src="../images/Logo/logonegro.png" alt="Shikena Tattoo Logo" class="nav-logo">
+      </a>
+    </div>
 
-  modal.appendChild(modalImg);
-  document.body.appendChild(modal);
+    <div class="nav-right">
+      <select id="lang-select" class="lang-picker">
+        <option value="en" selected>EN</option>
+        <option value="es">ES</option>
+        <option value="de">DE</option>
+      </select>
 
-  // Escuchar clics en las imágenes dentro de la clase .galeria-grid
-  const galeriaImagenes = document.querySelectorAll(".galeria-grid img");
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
-  galeriaImagenes.forEach((img) => {
-    img.style.cursor = "pointer";
-    img.addEventListener("click", () => {
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
-      modal.style.display = "flex";
-    });
-  });
+    <div class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="../index.html" data-i18n="home">Home</a></li>
+        <li><a href="blackwork.html">Blackwork</a></li>
+        <li><a href="color.html">Color</a></li>
+        <li><a href="fine-line.html">Fine Line</a></li>
+        <li><a href="cover-ups.html">Cover Ups</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  // Cerrar el modal al hacer clic en cualquier parte de la pantalla
-  modal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+  <header class="header-galeria">
+    <h1>Blackwork</h1>
+  </header>
 
-  // Cerrar modal con la tecla ESC
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.style.display === "flex") {
-      modal.style.display = "none";
-    }
-  });
+  <main class="galeria-grid">
+    <img src="../images/Blackwork/ancla.jpg" alt="Tattoo Anchor">
+    <img src="../images/Blackwork/letrasmividamifamilia.jpg" alt="Tattoo Lettering">
+    <img src="../images/Blackwork/mujercalavera.jpg" alt="Tattoo Skull Woman">
+    <img src="../images/Blackwork/silueta.jpg" alt="Tattoo Silhouette">
+    <img src="../images/Blackwork/IMG-20260731-WA0020.jpg" alt="Blackwork Tattoo">
+  </main>
 
-  // -------------------------------------------------------------
-  // 2. EFECTO SUAVE AL CARGAR
-  // -------------------------------------------------------------
-  document.body.style.opacity = "0";
-  document.body.style.transition = "opacity 0.4s ease-in-out";
-  
-  setTimeout(() => {
-    document.body.style.opacity = "1";
-  }, 50);
-});
+  <script src="../script.js"></script>
+</body>
+</html>
