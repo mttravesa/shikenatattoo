@@ -12,56 +12,55 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ===== IDIOMAS =====
-const translations = {
-    en: {
-        nav_blackwork: 'Blackwork',
-        nav_color: 'Color',
-        nav_fine: 'Fine Line',
-        nav_cover: 'Cover Ups',
-        hero_quote: 'Every tattoo tells a story',
-        hero_btn: 'View gallery',
-        footer_rights: 'All rights reserved'
-    },
-    de: {
-        nav_blackwork: 'Blackwork',
-        nav_color: 'Color',
-        nav_fine: 'Fine Line',
-        nav_cover: 'Cover Ups',
-        hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
-        hero_btn: 'Galerie ansehen',
-        footer_rights: 'Alle Rechte vorbehalten'
-    },
-    es: {
-        nav_blackwork: 'Blackwork',
-        nav_color: 'Color',
-        nav_fine: 'Fine Line',
-        nav_cover: 'Cover Ups',
-        hero_quote: 'Cada tatuaje cuenta una historia',
-        hero_btn: 'Ver galería',
-        footer_rights: 'Todos los derechos reservados'
-    }
-};
+// ===== DROPDOWN =====
+const dropdownBtn = document.getElementById('dropdownBtn');
+const dropdownContent = document.getElementById('dropdownContent');
+const selectedCategory = document.getElementById('selectedCategory');
 
-let currentLang = 'en';
+dropdownBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdownContent.classList.toggle('show');
+    dropdownBtn.classList.toggle('active');
+});
 
-function setLanguage(lang) {
-    currentLang = lang;
-    document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.dataset.key;
-        if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
-        }
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-}
+// Cerrar dropdown al hacer clic fuera
+document.addEventListener('click', () => {
+    dropdownContent.classList.remove('show');
+    dropdownBtn.classList.remove('active');
+});
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
+// ===== GALERÍA (cambiar al hacer clic en el dropdown) =====
+document.querySelectorAll('.dropdown-content a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.dataset.category;
+        
+        // Cambiar texto del botón
+        selectedCategory.textContent = this.textContent;
+        
+        // Ocultar todos los grids
+        document.querySelectorAll('.gallery-grid').forEach(grid => {
+            grid.classList.remove('active-grid');
+        });
+        
+        // Mostrar el grid correspondiente
+        document.getElementById(category).classList.add('active-grid');
+        
+        // Cambiar el título de la galería
+        document.getElementById('galleryTitle').textContent = this.textContent;
+        
+        // Marcar el elemento activo en el dropdown
+        document.querySelectorAll('.dropdown-content a').forEach(a => a.classList.remove('active-category'));
+        this.classList.add('active-category');
+        
+        // Cerrar el dropdown
+        dropdownContent.classList.remove('show');
+        dropdownBtn.classList.remove('active');
     });
 });
 
-setLanguage('en');
+// ===== CERRAR MENÚ AL HACER SCROLL =====
+document.addEventListener('scroll', () => {
+    dropdownContent.classList.remove('show');
+    dropdownBtn.classList.remove('active');
+});
