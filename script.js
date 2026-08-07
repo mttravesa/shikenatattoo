@@ -12,7 +12,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ===== GALERÍA (con los nombres CORRECTOS de tus archivos) =====
+// ===== GALERÍA =====
 const galleryData = {
     'blackwork': [
         'ancla.jpg',
@@ -92,12 +92,12 @@ videoList.forEach(video => {
     videosGrid.appendChild(div);
 });
 
-// ===== IDIOMAS =====
+// ===== IDIOMAS (FRASE SIN PUNTO) =====
 const translations = {
     en: {
         nav_galeria: 'Gallery',
         nav_videos: 'Videos',
-        hero_quote: 'Every tattoo<br>tells a story.',
+        hero_quote: 'Every tattoo<br>tells a story',
         hero_btn: 'View gallery',
         galeria_title: 'Gallery',
         videos_title: 'Videos',
@@ -106,7 +106,7 @@ const translations = {
     de: {
         nav_galeria: 'Galerie',
         nav_videos: 'Videos',
-        hero_quote: 'Jedes Tattoo<br>erzählt eine Geschichte.',
+        hero_quote: 'Jedes Tattoo<br>erzählt eine Geschichte',
         hero_btn: 'Galerie ansehen',
         galeria_title: 'Galerie',
         videos_title: 'Videos',
@@ -115,7 +115,7 @@ const translations = {
     es: {
         nav_galeria: 'Galería',
         nav_videos: 'Videos',
-        hero_quote: 'Cada tatuaje<br>cuenta una historia.',
+        hero_quote: 'Cada tatuaje<br>cuenta una historia',
         hero_btn: 'Ver galería',
         galeria_title: 'Galería',
         videos_title: 'Videos',
