@@ -34,18 +34,18 @@
                     <span class="lang-divider">|</span>
                     <button class="lang-btn" data-lang="es">ES</button>
                 </div>
-                <!-- MENÚ DESPLEGABLE CON ENLACES A GALERÍA Y VÍDEOS -->
+                <!-- MENÚ DESPLEGABLE -->
                 <div class="dropdown">
                     <button class="dropdown-btn" id="dropdownBtn">
-                        <span id="selectedCategory">Gallery</span>
+                        <span id="selectedCategory" data-key="gallery">Gallery</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content" id="dropdownContent">
-                        <a href="galerias/blackwork.html">Blackwork</a>
-                        <a href="galerias/color.html">Color</a>
-                        <a href="galerias/fine-line.html">Fine Line</a>
-                        <a href="galerias/cover-ups.html">Cover Ups</a>
-                        <a href="videos/videos.html" style="border-top:1px solid rgba(255,255,255,0.1); margin-top:5px; padding-top:10px;">Videos</a>
+                        <a href="galerias/blackwork.html" data-key="blackwork">Blackwork</a>
+                        <a href="galerias/color.html" data-key="color">Color</a>
+                        <a href="galerias/fine-line.html" data-key="fine_line">Fine Line</a>
+                        <a href="galerias/cover-ups.html" data-key="cover_ups">Cover Ups</a>
+                        <a href="videos/videos.html" style="border-top:1px solid rgba(255,255,255,0.1); margin-top:5px; padding-top:10px;" data-key="videos">Videos</a>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="hero-images">
                 <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_20_57.png" alt="Willy Tordera" class="hero-img">
                 <div class="hero-quote">
-                    <span class="quote-text">Every tattoo tells a story</span>
+                    <span class="quote-text" data-key="hero_quote">Every tattoo tells a story</span>
                 </div>
                 <img src="images/Fotos%20tatuador/ChatGPT%20Image%206%20ago%202026%2C%2022_28_15.png" alt="Willy Tordera" class="hero-img">
             </div>
@@ -69,7 +69,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Shikena Tattoo - All rights reserved</p>
+            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">All rights reserved</span></p>
         </div>
     </footer>
 
