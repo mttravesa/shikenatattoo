@@ -1,114 +1,167 @@
-// ===== MENÚ HAMBURGUESA =====
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
+/* ==========================================
+   SHIKENA TATTOO
+   SCRIPT.JS
+========================================== */
 
-menuToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-});
+document.addEventListener("DOMContentLoaded", () => {
 
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mainNav.classList.remove('open');
-    });
-});
+    /* ==========================
+       LIGHTBOX
+    ========================== */
 
-// ===== BOTONES DE GALERÍA =====
-document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        // Quitar 'active' de todos los botones
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
 
-        // Ocultar todos los grids
-        document.querySelectorAll('.gallery-grid').forEach(grid => {
-            grid.classList.remove('active-grid');
+    galleryImages.forEach(img => {
+
+        img.addEventListener("click", () => {
+
+            lightbox.style.display = "flex";
+
+            lightboxImg.src = img.src;
+
         });
 
-        // Mostrar el grid correspondiente
-        const targetId = this.dataset.category;
-        document.getElementById(targetId).classList.add('active-grid');
     });
-});
 
-// ===== VIDEOS =====
-const videoList = [
-    'VID-2026O630-WA0030.mp4',
-    'VID-2026O714-WA0028.mp4',
-    'VID-2026O714-WA0030.mp4',
-    'VID-2026O728-WA0045.mp4',
-    'VID-2026O729-WA0059.mp4',
-    'VID-2026O729-WA0060.mp4',
-    'VID-2026O729-WA0071.mp4',
-    'VID-2026O729-WA0072.mp4',
-    'VID-2026O729-WA0073.mp4',
-    'VID-2026O729-WA0074.mp4'
-];
+    if(closeBtn){
 
-const videosGrid = document.getElementById('videosGrid');
+        closeBtn.addEventListener("click", () => {
 
-videoList.forEach(video => {
-    const div = document.createElement('div');
-    div.className = 'video-item';
-    div.innerHTML = `
-        <video controls preload="metadata">
-            <source src="videos/${video}" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-        <div class="video-info">${video}</div>
-    `;
-    videosGrid.appendChild(div);
-});
+            lightbox.style.display = "none";
 
-// ===== IDIOMAS =====
-const translations = {
-    en: {
-        nav_galeria: 'Gallery',
-        nav_videos: 'Videos',
-        hero_quote: 'Every tattoo tells a story',
-        hero_btn: 'View gallery',
-        galeria_title: 'Gallery',
-        videos_title: 'Videos',
-        footer_rights: 'All rights reserved'
-    },
-    de: {
-        nav_galeria: 'Galerie',
-        nav_videos: 'Videos',
-        hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
-        hero_btn: 'Galerie ansehen',
-        galeria_title: 'Galerie',
-        videos_title: 'Videos',
-        footer_rights: 'Alle Rechte vorbehalten'
-    },
-    es: {
-        nav_galeria: 'Galería',
-        nav_videos: 'Videos',
-        hero_quote: 'Cada tatuaje cuenta una historia',
-        hero_btn: 'Ver galería',
-        galeria_title: 'Galería',
-        videos_title: 'Videos',
-        footer_rights: 'Todos los derechos reservados'
+        });
+
     }
-};
 
-let currentLang = 'en';
+    if(lightbox){
 
-function setLanguage(lang) {
-    currentLang = lang;
-    document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.dataset.key;
-        if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
-        }
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-}
+        lightbox.addEventListener("click",(e)=>{
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
+            if(e.target===lightbox){
+
+                lightbox.style.display="none";
+
+            }
+
+        });
+
+    }
+
+
+    /* ==========================
+       SCROLL SUAVE
+    ========================== */
+
+    document.querySelectorAll('nav a').forEach(anchor=>{
+
+        anchor.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            const destino=document.querySelector(this.getAttribute("href"));
+
+            if(destino){
+
+                destino.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        });
+
     });
+
+
+    /* ==========================
+       ANIMACIÓN AL HACER SCROLL
+    ========================== */
+
+    const observer=new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    document.querySelectorAll(".gallery-section,.video-section,.cta").forEach(sec=>{
+
+        observer.observe(sec);
+
+    });
+
 });
 
-setLanguage('en');
+
+/* ==========================================
+   BOTÓN VOLVER ARRIBA
+========================================== */
+
+const topButton=document.createElement("button");
+
+topButton.innerHTML="↑";
+
+topButton.className="topButton";
+
+document.body.appendChild(topButton);
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>500){
+
+        topButton.style.opacity="1";
+
+        topButton.style.pointerEvents="auto";
+
+    }else{
+
+        topButton.style.opacity="0";
+
+        topButton.style.pointerEvents="none";
+
+    }
+
+});
+
+topButton.addEventListener("click",()=>{
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+
+/* ==========================================
+   AÑO AUTOMÁTICO FOOTER
+========================================== */
+
+const year=new Date().getFullYear();
+
+const copyright=document.querySelector(".copyright");
+
+if(copyright){
+
+    copyright.innerHTML=`© ${year} Shikena Tattoo · All Rights Reserved`;
+
+}
