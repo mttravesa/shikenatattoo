@@ -34,15 +34,15 @@
                 </div>
                 <div class="dropdown">
                     <button class="dropdown-btn" id="dropdownBtn">
-                        <span id="selectedCategory">Videos</span>
+                        <span id="selectedCategory" data-key="videos">Videos</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content" id="dropdownContent">
-                        <a href="../galerias/blackwork.html">Blackwork</a>
-                        <a href="../galerias/color.html">Color</a>
-                        <a href="../galerias/fine-line.html">Fine Line</a>
-                        <a href="../galerias/cover-ups.html">Cover Ups</a>
-                        <a href="videos.html" style="color:#fff; background:rgba(255,255,255,0.1);">Videos</a>
+                        <a href="../galerias/blackwork.html" data-key="blackwork">Blackwork</a>
+                        <a href="../galerias/color.html" data-key="color">Color</a>
+                        <a href="../galerias/fine-line.html" data-key="fine_line">Fine Line</a>
+                        <a href="../galerias/cover-ups.html" data-key="cover_ups">Cover Ups</a>
+                        <a href="videos.html" style="color:#fff; background:rgba(255,255,255,0.1); border-top:1px solid rgba(255,255,255,0.1); margin-top:5px; padding-top:10px;" data-key="videos">Videos</a>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
     <!-- ===== SECCIÓN DE VÍDEOS ===== -->
     <section class="section videos-page">
         <div class="container">
-            <h1 class="section-title">Videos</h1>
+            <h1 class="section-title" data-key="videos">Videos</h1>
             <div class="videos-grid">
                 <!-- VÍDEO 1 -->
                 <div class="video-item">
@@ -60,7 +60,7 @@
                         <source src="VID-20260630-WA0030.mp4" type="video/mp4">
                         Tu navegador no soporta videos.
                     </video>
-                    <div class="video-info">VID-2026O630-WA0030</div>
+                    <div class="video-info">VID-20260630-WA0030</div>
                 </div>
 
                 <!-- VÍDEO 2 -->
@@ -150,7 +150,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Shikena Tattoo - All rights reserved</p>
+            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">All rights reserved</span></p>
         </div>
     </footer>
 
