@@ -26,25 +26,17 @@
                 </div>
             </a>
             <div class="header-right">
-                <!-- DROPDOWN CON GALERÍA Y VÍDEOS -->
+                <!-- SOLO UN MENÚ DESPLEGABLE CON LAS 4 CATEGORÍAS -->
                 <div class="dropdown">
                     <button class="dropdown-btn" id="dropdownBtn">
-                        <span id="selectedCategory">Menu</span>
+                        <span id="selectedCategory">Gallery</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content" id="dropdownContent">
-                        <!-- Submenú GALERÍA -->
-                        <div class="dropdown-submenu">
-                            <a href="#" class="dropdown-submenu-btn" id="gallerySubmenuBtn">Gallery</a>
-                            <div class="dropdown-submenu-content" id="gallerySubmenuContent">
-                                <a href="#" data-category="blackwork">Blackwork</a>
-                                <a href="#" data-category="color">Color</a>
-                                <a href="#" data-category="fine-line">Fine Line</a>
-                                <a href="#" data-category="cover-ups">Cover Ups</a>
-                            </div>
-                        </div>
-                        <!-- VÍDEOS -->
-                        <a href="#videos" id="videosLink">Videos</a>
+                        <a href="#" data-category="blackwork">Blackwork</a>
+                        <a href="#" data-category="color">Color</a>
+                        <a href="#" data-category="fine-line">Fine Line</a>
+                        <a href="#" data-category="cover-ups">Cover Ups</a>
                     </div>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Menú">
@@ -55,7 +47,6 @@
         <nav id="mainNav">
             <ul class="nav-menu">
                 <li><a href="#galeria" class="nav-link">Gallery</a></li>
-                <li><a href="#videos" class="nav-link">Videos</a></li>
             </ul>
         </nav>
     </header>
@@ -113,7 +104,7 @@
         </div>
     </section>
 
-    <!-- ===== VÍDEOS ===== -->
+    <!-- ===== VÍDEOS (OCULTOS, SIN ACCESO DESDE EL MENÚ) ===== -->
     <section id="videos" class="section videos">
         <div class="container">
             <h2 class="section-title">Videos</h2>
