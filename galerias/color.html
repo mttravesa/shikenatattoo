@@ -53,13 +53,26 @@
         <div class="container">
             <h1 class="section-title">Color</h1>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="../images/Color/deathwoman.jpg" alt="deathwoman"><div class="overlay"><p>deathwoman</p></div></div>
-                <div class="gallery-item"><img src="../images/Color/india.jpg" alt="india"><div class="overlay"><p>india</p></div></div>
-                <div class="gallery-item"><img src="../images/Color/indiazul.jpg" alt="indiazul"><div class="overlay"><p>indiazul</p></div></div>
-                <div class="gallery-item"><img src="../images/Color/stich.jpg" alt="stich"><div class="overlay"><p>stich</p></div></div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Color/deathwoman.jpg" alt="Color">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Color/india.jpg" alt="Color">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Color/indiazul.jpg" alt="Color">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Color/stich.jpg" alt="Color">
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="Ampliada">
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
