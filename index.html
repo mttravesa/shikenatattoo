@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,52 +8,57 @@
 </head>
 <body>
 
-  <!-- Encabezado con Logo -->
+  <!-- Navegación Superior -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="images/Logo/logonegro.png" alt="Shikena Tattoo Logo" class="nav-logo">
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <select id="lang-select" class="lang-picker">
+        <option value="en" selected>EN</option>
+        <option value="es">ES</option>
+        <option value="de">DE</option>
+      </select>
+
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="index.html" data-i18n="home">Home</a></li>
+        <li><a href="galerias/blackwork.html">Blackwork</a></li>
+        <li><a href="galerias/color.html">Color</a></li>
+        <li><a href="galerias/fine-line.html">Fine Line</a></li>
+        <li><a href="galerias/cover-ups.html">Cover Ups</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Presentación Portada -->
   <header class="hero">
-    <img src="images/Logo/logoblanco.png" alt="Shikena Tattoo Logo" class="logo">
     <h1>Shikena Tattoo</h1>
-    <p class="tagline">Arte en la piel • Diseños Exclusivos</p>
+    <p class="tagline" data-i18n="tagline">Custom Tattoo Art • Exclusive Designs</p>
   </header>
 
-  <!-- Sobre el tatuador -->
   <section class="bio-section">
-    <h2>El Tatuador</h2>
+    <h2 data-i18n="about_title">The Artist</h2>
     <div class="bio-container">
-      <img src="images/Fotos tatuador/ChatGPT Image 6 ago 2026, 22_20_57.png" alt="Foto Tatuador" class="foto-tatuador">
-      <p>Bienvenido a mi portafolio. Explora los diferentes estilos de trabajo para ver mis creaciones más recientes.</p>
-    </div>
-  </section>
-
-  <!-- Navegación a Subapartados / Galerías -->
-  <section class="galeria-menu">
-    <h2>Estilos & Galerías</h2>
-    <div class="menu-grid">
-      <a href="galerias/blackwork.html" class="card-link">
-        <div class="card">
-          <h3>Blackwork</h3>
-        </div>
-      </a>
-      <a href="galerias/color.html" class="card-link">
-        <div class="card">
-          <h3>Color</h3>
-        </div>
-      </a>
-      <a href="galerias/fine-line.html" class="card-link">
-        <div class="card">
-          <h3>Fine Line</h3>
-        </div>
-      </a>
-      <a href="galerias/cover-ups.html" class="card-link">
-        <div class="card">
-          <h3>Cover Ups</h3>
-        </div>
-      </a>
+      <img src="images/Fotos tatuador/ChatGPT Image 6 ago 2026, 22_20_57.png" alt="Tattoo Artist" class="foto-tatuador">
+      <p data-i18n="about_text">Welcome to my portfolio. Explore the different styles in the top menu to see my latest work.</p>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Shikena Tattoo. Todos los derechos reservados.</p>
+    <p>&copy; 2026 Shikena Tattoo. <span data-i18n="rights">All rights reserved.</span></p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
