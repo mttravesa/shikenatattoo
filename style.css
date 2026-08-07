@@ -5,9 +5,10 @@
     box-sizing: border-box;
 }
 
-html, body {
+/* BLOQUEAR SCROLL EN LA PORTADA */
+html {
     height: 100%;
-    overflow: hidden; /* ← IMPIDE SCROLL EN LA PORTADA */
+    overflow: hidden; /* Evita scroll en toda la página */
 }
 
 body {
@@ -15,7 +16,14 @@ body {
     background: #0a0a0a;
     color: #ffffff;
     line-height: 1.6;
-    overflow-y: scroll; /* Permite scroll SOLO en galería y videos */
+    height: 100%;
+    overflow-y: auto; /* Permite scroll SOLO en las secciones (galería, videos) */
+    scroll-snap-type: y mandatory; /* Fuerza el "snap" a la portada */
+}
+
+/* SECCIONES CON SNAP */
+.hero, .section {
+    scroll-snap-align: start; /* Cada sección "encaja" al hacer scroll */
 }
 
 .container {
@@ -77,10 +85,24 @@ header {
     align-items: center;
 }
 
-.logo img {
-    height: 50px;
-    width: auto;
+/* ===== LOGOS NUEVOS (MÁS GRANDES Y EN LÍNEA) ===== */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre los dos logos */
 }
+
+.logo-img {
+    height: 70px; /* Tamaño más grande */
+    width: auto;
+    display: block;
+}
+
+.logo-letras {
+    height: 60px; /* Ajuste para que quede proporcionado */
+}
+
+/* ===== FIN LOGOS ===== */
 
 .header-right {
     display: flex;
@@ -270,6 +292,7 @@ nav.open {
 .section {
     padding: 120px 0 80px;
     scroll-margin-top: 80px;
+    min-height: 100vh; /* Cada sección ocupa al menos el alto de la pantalla */
 }
 
 .section-title {
@@ -420,6 +443,12 @@ footer {
     .section-title {
         font-size: 2.2rem;
     }
+    .logo-img {
+        height: 50px;
+    }
+    .logo-letras {
+        height: 40px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -461,5 +490,11 @@ footer {
     }
     .section {
         padding: 100px 0 60px;
+    }
+    .logo-img {
+        height: 40px;
+    }
+    .logo-letras {
+        height: 32px;
     }
 }
