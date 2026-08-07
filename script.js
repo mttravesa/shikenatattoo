@@ -1,5 +1,5 @@
 // ============================================================
-// 1. DROPDOWN (Menú desplegable)
+// 1. DROPDOWN
 // ============================================================
 const dropdownBtn = document.getElementById('dropdownBtn');
 const dropdownContent = document.getElementById('dropdownContent');
@@ -37,7 +37,7 @@ if (dropdownContent) {
 }
 
 // ============================================================
-// 2. LIGHTBOX (Agrandar fotos al hacer clic)
+// 2. LIGHTBOX
 // ============================================================
 function openLightbox(element) {
     const img = element.querySelector('img');
@@ -66,7 +66,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================================
-// 3. IDIOMAS (TRADUCCIONES COMPLETAS)
+// 3. IDIOMAS
 // ============================================================
 const translations = {
     en: {
@@ -102,14 +102,14 @@ const translations = {
 };
 
 // ============================================================
-// 4. FUNCIÓN PARA CAMBIAR IDIOMA (CON LIMPIEZA TOTAL)
+// 4. FUNCIÓN PARA CAMBIAR IDIOMA (ARREGLADA)
 // ============================================================
 let currentLang = 'en';
 
 function setLanguage(lang) {
     currentLang = lang;
     
-    // Cambiar todos los textos con data-key
+    // Cambiar textos con data-key
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.dataset.key;
         if (translations[lang] && translations[lang][key]) {
@@ -117,12 +117,12 @@ function setLanguage(lang) {
         }
     });
     
-    // LIMPIAR TODOS LOS BOTONES (eliminar clase 'active' de todos)
+    // 🔥 LIMPIAR TODOS LOS BOTONES (eliminar clase 'active' de TODOS)
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     
-    // ACTIVAR SOLO EL BOTÓN DEL IDIOMA SELECCIONADO
+    // 🔥 ACTIVAR SOLO EL BOTÓN CORRESPONDIENTE
     document.querySelectorAll('.lang-btn').forEach(btn => {
         if (btn.dataset.lang === lang) {
             btn.classList.add('active');
@@ -131,26 +131,22 @@ function setLanguage(lang) {
 }
 
 // ============================================================
-// 5. ESPERAR A QUE LA PÁGINA ESTÉ COMPLETAMENTE CARGADA
+// 5. INICIALIZAR CUANDO LA PÁGINA ESTÉ LISTA
 // ============================================================
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ Página cargada. Inicializando idiomas...');
     
-    // Asignar evento a los botones de idioma
+    // Asignar eventos a los botones de idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             setLanguage(this.dataset.lang);
         });
     });
     
-    // Establecer idioma por defecto (inglés)
+    // Establecer idioma por defecto (INGLÉS)
     setLanguage('en');
     
     console.log('🌐 Idioma actual:', currentLang);
 });
 
-// ============================================================
-// 6. LOG (para depuración)
-// ============================================================
 console.log('✅ Script cargado correctamente');
-console.log('📝 Idiomas disponibles:', Object.keys(translations));
