@@ -1,57 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blackwork - Shikena Tattoo</title>
-  <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color - Shikena Tattoo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="../index.html">
-        <img src="../images/Logo/logonegro.png" alt="Shikena Tattoo Logo" class="nav-logo">
-      </a>
-    </div>
+    <!-- ===== WHATSAPP FIJO ===== -->
+    <a href="https://wa.me/34657382039" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <div class="nav-right">
-      <select id="lang-select" class="lang-picker">
-        <option value="en" selected>EN</option>
-        <option value="es">ES</option>
-        <option value="de">DE</option>
-      </select>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-wrapper">
+                    <img src="../images/Logo/logolunanegra.png" alt="Shikena Tattoo" class="logo-img logo-luna">
+                    <img src="../images/Logo/logoletrasnegras.png" alt="Shikena Tattoo" class="logo-img logo-letras">
+                </div>
+            </a>
+            <div class="header-right">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav id="mainNav">
+            <ul class="nav-menu">
+                <li><a href="blackwork.html" class="nav-link">Blackwork</a></li>
+                <li><a href="color.html" class="nav-link active-page">Color</a></li>
+                <li><a href="fine-line.html" class="nav-link">Fine Line</a></li>
+                <li><a href="cover-ups.html" class="nav-link">Cover Ups</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+    <!-- ===== GALERÍA COLOR ===== -->
+    <section class="section gallery-page">
+        <div class="container">
+            <h1 class="section-title">Color</h1>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="../images/Color/deathwoman.jpg" alt="deathwoman"><div class="overlay"><p>deathwoman</p></div></div>
+                <div class="gallery-item"><img src="../images/Color/india.jpg" alt="india"><div class="overlay"><p>india</p></div></div>
+                <div class="gallery-item"><img src="../images/Color/indiazul.jpg" alt="indiazul"><div class="overlay"><p>indiazul</p></div></div>
+                <div class="gallery-item"><img src="../images/Color/stich.jpg" alt="stich"><div class="overlay"><p>stich</p></div></div>
+            </div>
+        </div>
+    </section>
 
-    <div class="nav-menu" id="nav-menu">
-      <ul>
-        <li><a href="../index.html" data-i18n="home">Home</a></li>
-        <li><a href="blackwork.html">Blackwork</a></li>
-        <li><a href="color.html">Color</a></li>
-        <li><a href="fine-line.html">Fine Line</a></li>
-        <li><a href="cover-ups.html">Cover Ups</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Shikena Tattoo - All rights reserved</p>
+        </div>
+    </footer>
 
-  <header class="header-galeria">
-    <h1>Blackwork</h1>
-  </header>
-
-  <main class="galeria-grid">
-    <img src="../images/Blackwork/ancla.jpg" alt="Tattoo Anchor">
-    <img src="../images/Blackwork/letrasmividamifamilia.jpg" alt="Tattoo Lettering">
-    <img src="../images/Blackwork/mujercalavera.jpg" alt="Tattoo Skull Woman">
-    <img src="../images/Blackwork/silueta.jpg" alt="Tattoo Silhouette">
-    <img src="../images/Blackwork/IMG-20260731-WA0020.jpg" alt="Blackwork Tattoo">
-  </main>
-
-  <script src="../script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
