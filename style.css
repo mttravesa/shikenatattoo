@@ -60,7 +60,7 @@ header {
     width: 100%;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    padding: 20px 0;
+    padding: 15px 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -71,33 +71,32 @@ header {
     align-items: center;
 }
 
-/* ===== LOGOS (Medidas de la cuarta versión) ===== */
+/* ===== LOGOS (más pequeños y en línea) ===== */
 .logo-wrapper {
     display: flex;
     align-items: center;
-    gap: 2px;
-    margin-left: -20px;
+    gap: 5px;
 }
 
 .logo-img {
-    height: 90px;
+    height: 40px;
     width: auto;
     display: block;
 }
 
 .logo-luna {
-    height: 95px;
+    height: 42px;
 }
 
 .logo-letras {
-    height: 75px;
+    height: 35px;
 }
 
 /* ===== HEADER RIGHT ===== */
 .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* ===== DROPDOWN ===== */
@@ -110,14 +109,14 @@ header {
     background: transparent;
     border: 1px solid rgba(255,255,255,0.2);
     color: #fff;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     transition: all 0.3s;
 }
 
@@ -167,9 +166,44 @@ header {
     color: #fff;
 }
 
-.dropdown-content a.active-category {
+/* ===== SUBMENÚ ===== */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu-btn {
+    display: block;
+    padding: 10px 16px;
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.dropdown-submenu-btn:hover {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+}
+
+.dropdown-submenu-content {
+    display: none;
+    padding-left: 16px;
+}
+
+.dropdown-submenu-content a {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.dropdown-submenu-content a.active-category {
     background: rgba(255,255,255,0.1);
     color: #fff;
+}
+
+.dropdown-submenu.open .dropdown-submenu-content {
+    display: block;
 }
 
 .menu-toggle {
@@ -216,8 +250,9 @@ nav.open {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 120px;
+    padding-top: 100px;
     padding-bottom: 40px;
+    position: relative;
 }
 
 .hero-overlay {
@@ -253,13 +288,12 @@ nav.open {
 .hero-img {
     width: 35%;
     max-width: 400px;
-    height: 480px;
+    height: 450px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.8);
 }
 
-/* ===== FRASE ELEGANTE SIN PUNTO ===== */
 .hero-quote {
     width: 25%;
     text-align: center;
@@ -282,7 +316,7 @@ nav.open {
     display: inline-block;
     background: transparent;
     color: #fff;
-    padding: 14px 45px;
+    padding: 12px 40px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 16px;
@@ -302,12 +336,12 @@ nav.open {
 
 /* ===== GALERÍA ===== */
 .section {
-    padding: 120px 0 80px;
+    padding: 100px 0 80px;
     min-height: 100vh;
 }
 
 .section-title {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 900;
     text-align: center;
     margin-bottom: 50px;
@@ -369,6 +403,33 @@ nav.open {
     text-transform: capitalize;
 }
 
+/* ===== VÍDEOS ===== */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.video-item {
+    background: #141414;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.video-item video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.video-item .video-info {
+    padding: 15px;
+    color: #aaa;
+    font-size: 14px;
+}
+
 /* ===== FOOTER ===== */
 footer {
     background: #050505;
@@ -400,18 +461,6 @@ footer {
     .section-title {
         font-size: 2.2rem;
     }
-    .logo-img {
-        height: 60px;
-    }
-    .logo-luna {
-        height: 65px;
-    }
-    .logo-letras {
-        height: 50px;
-    }
-    .logo-wrapper {
-        margin-left: -10px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -425,7 +474,7 @@ footer {
         padding: 20px 0;
     }
     .dropdown-btn {
-        padding: 8px 14px;
+        padding: 6px 12px;
         font-size: 12px;
     }
     .dropdown-content {
@@ -443,11 +492,14 @@ footer {
         white-space: normal;
     }
     .btn-hero {
-        padding: 12px 30px;
+        padding: 10px 30px;
         font-size: 14px;
     }
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
+    }
+    .videos-grid {
+        grid-template-columns: 1fr;
     }
     .whatsapp-float {
         width: 50px;
@@ -457,22 +509,18 @@ footer {
         right: 20px;
     }
     .section {
-        padding: 100px 0 60px;
+        padding: 80px 0 60px;
     }
     .logo-img {
-        height: 50px;
+        height: 30px;
     }
     .logo-luna {
-        height: 55px;
+        height: 32px;
     }
     .logo-letras {
-        height: 42px;
-    }
-    .logo-wrapper {
-        margin-left: 0;
-        gap: 0;
+        height: 26px;
     }
     .hero {
-        padding-top: 100px;
+        padding-top: 80px;
     }
 }
