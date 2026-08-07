@@ -1,17 +1,3 @@
-// ===== MENÚ HAMBURGUESA =====
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
-
-menuToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-});
-
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mainNav.classList.remove('open');
-    });
-});
-
 // ===== DROPDOWN =====
 const dropdownBtn = document.getElementById('dropdownBtn');
 const dropdownContent = document.getElementById('dropdownContent');
@@ -106,5 +92,4 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     });
 });
 
-// Idioma por defecto: INGLÉS
 setLanguage('en');
