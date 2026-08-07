@@ -53,14 +53,30 @@
         <div class="container">
             <h1 class="section-title">Blackwork</h1>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="../images/Blackwork/ancla.jpg" alt="ancla"><div class="overlay"><p>ancla</p></div></div>
-                <div class="gallery-item"><img src="../images/Blackwork/letrasmividamifamilia.jpg" alt="letrasmividamifamilia"><div class="overlay"><p>letrasmividamifamilia</p></div></div>
-                <div class="gallery-item"><img src="../images/Blackwork/mujercalavera.jpg" alt="mujercalavera"><div class="overlay"><p>mujercalavera</p></div></div>
-                <div class="gallery-item"><img src="../images/Blackwork/silueta.jpg" alt="silueta"><div class="overlay"><p>silueta</p></div></div>
-                <div class="gallery-item"><img src="../images/Blackwork/IMG-20260731-WA0020.jpg" alt="IMG-20260731-WA0020"><div class="overlay"><p>IMG-20260731-WA0020</p></div></div>
+                <!-- CADA FOTO TIENE UN ATRIBUTO "onclick" PARA ABRIR LA VENTANA EMERGENTE -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Blackwork/ancla.jpg" alt="Blackwork">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Blackwork/letrasmividamifamilia.jpg" alt="Blackwork">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Blackwork/mujercalavera.jpg" alt="Blackwork">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Blackwork/silueta.jpg" alt="Blackwork">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Blackwork/IMG-20260731-WA0020.jpg" alt="Blackwork">
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ===== LIGHTBOX (VENTANA EMERGENTE) ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="Ampliada">
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
