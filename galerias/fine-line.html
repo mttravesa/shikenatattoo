@@ -53,13 +53,26 @@
         <div class="container">
             <h1 class="section-title">Fine Line</h1>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="../images/Fine%20Line/cruz.jpg" alt="cruz"><div class="overlay"><p>cruz</p></div></div>
-                <div class="gallery-item"><img src="../images/Fine%20Line/lazo.jpg" alt="lazo"><div class="overlay"><p>lazo</p></div></div>
-                <div class="gallery-item"><img src="../images/Fine%20Line/leon.jpg" alt="leon"><div class="overlay"><p>leon</p></div></div>
-                <div class="gallery-item"><img src="../images/Fine%20Line/plumaestilografica.jpg" alt="plumaestilografica"><div class="overlay"><p>plumaestilografica</p></div></div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Fine%20Line/cruz.jpg" alt="Fine Line">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Fine%20Line/lazo.jpg" alt="Fine Line">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Fine%20Line/leon.jpg" alt="Fine Line">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Fine%20Line/plumaestilografica.jpg" alt="Fine Line">
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="Ampliada">
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
