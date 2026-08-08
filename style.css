@@ -560,3 +560,20 @@ footer {
         padding: 12px 15px;
     }
             }
+
+/* ===== EMOJI FLOTANTE AL HACER CLIC ===== */
+.emoji-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 8rem;
+    z-index: 10000;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-shadow: 0 0 50px rgba(255,255,255,0.3);
+}
+
+.emoji-popup.show {
+    transform: translate(-50%, -50%) scale(1);
+}
