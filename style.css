@@ -267,7 +267,7 @@ header {
     white-space: nowrap;
 }
 
-/* ===== GALERÍA (páginas individuales) ===== */
+/* ===== GALERÍA ===== */
 .section {
     padding: 100px 0 80px;
     min-height: 100vh;
@@ -310,7 +310,7 @@ header {
     transform: scale(1.08);
 }
 
-/* ===== LIGHTBOX (VENTANA EMERGENTE PARA AGRANDAR FOTOS) ===== */
+/* ===== LIGHTBOX FOTOS ===== */
 .lightbox {
     display: none;
     position: fixed;
@@ -337,47 +337,116 @@ header {
     display: flex;
 }
 
-/* ===== VÍDEOS EN VERTICAL (9:16) - SIN RECORTES ===== */
-.videos-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    max-width: 400px;
+/* ===== VÍDEOS EN CUADRÍCULA (2 COLUMNAS) ===== */
+.videos-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
     margin: 0 auto;
-    width: 100%;
     padding: 0 20px;
 }
 
-.video-item {
-    width: 100%;
+.videos-grid-2col .video-item {
     background: #141414;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.08);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.video-item:hover {
-    transform: scale(1.02);
+.videos-grid-2col .video-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 
-.video-item video {
+.videos-grid-2col .video-item video {
     width: 100%;
     aspect-ratio: 9 / 16;
+    object-fit: cover;
+    display: block;
+    background: #000;
+    pointer-events: none;
+}
+
+.videos-grid-2col .video-item .video-info {
+    padding: 10px 12px;
+    color: #ccc;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* ===== LIGHTBOX VÍDEOS ===== */
+.video-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.video-lightbox.show {
+    display: flex;
+}
+
+.video-lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    width: 100%;
+    background: #0a0a0a;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+}
+
+.video-lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.video-lightbox-close:hover {
+    transform: scale(1.2);
+}
+
+.video-lightbox-content video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: 85vh;
     object-fit: contain;
     display: block;
     background: #000;
 }
 
-.video-item .video-info {
-    padding: 12px 16px;
-    color: #ccc;
-    font-size: 15px;
+.video-lightbox-title {
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 18px;
     font-weight: 500;
     text-align: center;
-    background: rgba(255,255,255,0.03);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255,255,255,0.05);
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.5px;
@@ -464,20 +533,30 @@ footer {
     .hero {
         padding-top: 80px;
     }
-    .videos-list {
-        max-width: 100%;
-        gap: 20px;
+    .videos-grid-2col {
+        gap: 15px;
         padding: 0 15px;
+        max-width: 100%;
     }
-    .video-item {
+    .videos-grid-2col .video-item {
         border-radius: 12px;
     }
-    .video-item video {
-        aspect-ratio: 9 / 16;
-        object-fit: contain;
+    .videos-grid-2col .video-item .video-info {
+        font-size: 12px;
+        padding: 8px 10px;
     }
-    .video-item .video-info {
-        font-size: 13px;
-        padding: 10px 12px;
+    .video-lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+        border-radius: 16px;
     }
-}
+    .video-lightbox-close {
+        font-size: 30px;
+        top: 8px;
+        right: 15px;
+    }
+    .video-lightbox-title {
+        font-size: 15px;
+        padding: 12px 15px;
+    }
+            }
