@@ -175,3 +175,32 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 setLanguage('en');
 
 console.log('✅ Script cargado correctamente');
+
+// ============================================================
+// EMOJI AL HACER CLIC EN LAS FOTOS DE LA PORTADA
+// ============================================================
+let emojiTimeout;
+
+function showEmoji() {
+    const oldEmoji = document.querySelector('.emoji-popup');
+    if (oldEmoji) {
+        oldEmoji.remove();
+        clearTimeout(emojiTimeout);
+    }
+
+    const emoji = document.createElement('div');
+    emoji.className = 'emoji-popup';
+    emoji.textContent = '🪶'; // PLUMA DE AVE
+    document.body.appendChild(emoji);
+
+    setTimeout(() => {
+        emoji.classList.add('show');
+    }, 10);
+
+    emojiTimeout = setTimeout(() => {
+        emoji.classList.remove('show');
+        setTimeout(() => {
+            emoji.remove();
+        }, 300);
+    }, 1000);
+}
