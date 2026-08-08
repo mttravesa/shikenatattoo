@@ -37,7 +37,7 @@ if (dropdownContent) {
 }
 
 // ============================================================
-// 2. LIGHTBOX
+// 2. LIGHTBOX PARA FOTOS
 // ============================================================
 function openLightbox(element) {
     const img = element.querySelector('img');
@@ -66,7 +66,49 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================================
-// 3. IDIOMAS
+// 3. LIGHTBOX PARA VÍDEOS
+// ============================================================
+function openVideoLightbox(element) {
+    const video = element.querySelector('video');
+    const title = element.querySelector('.video-info')?.textContent || 'Video';
+    const lightbox = document.getElementById('videoLightbox');
+    const lightboxVideo = document.getElementById('lightboxVideo');
+    const lightboxTitle = document.getElementById('lightboxVideoTitle');
+    
+    if (video && lightboxVideo) {
+        const src = video.querySelector('source')?.src || video.src;
+        lightboxVideo.src = src;
+        lightboxVideo.load();
+        lightboxTitle.textContent = title;
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        lightboxVideo.play().catch(() => {});
+    }
+}
+
+function closeVideoLightbox() {
+    const lightbox = document.getElementById('videoLightbox');
+    const lightboxVideo = document.getElementById('lightboxVideo');
+    if (lightbox) {
+        lightbox.classList.remove('show');
+        document.body.style.overflow = '';
+        if (lightboxVideo) {
+            lightboxVideo.pause();
+            lightboxVideo.src = '';
+            lightboxVideo.load();
+        }
+    }
+}
+
+// Cerrar el lightbox de vídeos con la tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeVideoLightbox();
+    }
+});
+
+// ============================================================
+// 4. IDIOMAS (TRADUCCIONES COMPLETAS)
 // ============================================================
 const translations = {
     en: {
@@ -101,15 +143,11 @@ const translations = {
     }
 };
 
-// ============================================================
-// 4. FUNCIÓN PARA CAMBIAR IDIOMA (ARREGLADA)
-// ============================================================
 let currentLang = 'en';
 
 function setLanguage(lang) {
     currentLang = lang;
     
-    // Cambiar textos con data-key
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.dataset.key;
         if (translations[lang] && translations[lang][key]) {
@@ -117,12 +155,10 @@ function setLanguage(lang) {
         }
     });
     
-    // 🔥 LIMPIAR TODOS LOS BOTONES (eliminar clase 'active' de TODOS)
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     
-    // 🔥 ACTIVAR SOLO EL BOTÓN CORRESPONDIENTE
     document.querySelectorAll('.lang-btn').forEach(btn => {
         if (btn.dataset.lang === lang) {
             btn.classList.add('active');
@@ -130,23 +166,12 @@ function setLanguage(lang) {
     });
 }
 
-// ============================================================
-// 5. INICIALIZAR CUANDO LA PÁGINA ESTÉ LISTA
-// ============================================================
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('✅ Página cargada. Inicializando idiomas...');
-    
-    // Asignar eventos a los botones de idioma
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            setLanguage(this.dataset.lang);
-        });
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
     });
-    
-    // Establecer idioma por defecto (INGLÉS)
-    setLanguage('en');
-    
-    console.log('🌐 Idioma actual:', currentLang);
 });
+
+setLanguage('en');
 
 console.log('✅ Script cargado correctamente');
