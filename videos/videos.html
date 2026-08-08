@@ -49,65 +49,65 @@
         </div>
     </header>
 
-    <!-- ===== VÍDEOS ===== -->
+    <!-- ===== VÍDEOS EN CUADRÍCULA ===== -->
     <section class="section videos-page">
         <div class="container">
             <h1 class="section-title" data-key="videos">Videos</h1>
             
-            <div class="videos-list">
+            <div class="videos-grid-2col">
                 
-                <div class="video-item">
-                    <video controls preload="metadata">
+                <!-- VÍDEO 1 -->
+                <div class="video-item" onclick="openVideoLightbox(this)">
+                    <video preload="metadata">
                         <source src="grab1.mp4" type="video/mp4">
-                        Tu navegador no soporta videos.
                     </video>
                     <div class="video-info">Jesus</div>
                 </div>
 
-                <div class="video-item">
-                    <video controls preload="metadata">
+                <!-- VÍDEO 2 -->
+                <div class="video-item" onclick="openVideoLightbox(this)">
+                    <video preload="metadata">
                         <source src="grab2.mp4" type="video/mp4">
-                        Tu navegador no soporta videos.
                     </video>
                     <div class="video-info">Messi Barça</div>
                 </div>
 
-                <div class="video-item">
-                    <video controls preload="metadata">
+                <!-- VÍDEO 3 -->
+                <div class="video-item" onclick="openVideoLightbox(this)">
+                    <video preload="metadata">
                         <source src="grab3.mp4" type="video/mp4">
-                        Tu navegador no soporta videos.
                     </video>
                     <div class="video-info">Stich</div>
                 </div>
 
-                <div class="video-item">
-                    <video controls preload="metadata">
+                <!-- VÍDEO 4 -->
+                <div class="video-item" onclick="openVideoLightbox(this)">
+                    <video preload="metadata">
                         <source src="grab4.mp4" type="video/mp4">
-                        Tu navegador no soporta videos.
                     </video>
                     <div class="video-info">Skull Woman</div>
                 </div>
 
-                <div class="video-item">
-                    <video controls preload="metadata">
+                <!-- VÍDEO 5 -->
+                <div class="video-item" onclick="openVideoLightbox(this)">
+                    <video preload="metadata">
                         <source src="grab5.mp4" type="video/mp4">
-                        Tu navegador no soporta videos.
                     </video>
                     <div class="video-info">Bird</div>
                 </div>
 
-                <div class="video-item">
-                    <video controls preload="metadata">
+                <!-- VÍDEO 6 -->
+                <div class="video-item" onclick="openVideoLightbox(this)">
+                    <video preload="metadata">
                         <source src="grab6.mp4" type="video/mp4">
-                        Tu navegador no soporta videos.
                     </video>
                     <div class="video-info">Mask and blood</div>
                 </div>
 
-                <div class="video-item">
-                    <video controls preload="metadata">
+                <!-- VÍDEO 7 -->
+                <div class="video-item" onclick="openVideoLightbox(this)">
+                    <video preload="metadata">
                         <source src="grab7.mp4" type="video/mp4">
-                        Tu navegador no soporta videos.
                     </video>
                     <div class="video-info">Indian warrior</div>
                 </div>
@@ -115,6 +115,18 @@
             </div>
         </div>
     </section>
+
+    <!-- ===== LIGHTBOX PARA VÍDEOS ===== -->
+    <div class="video-lightbox" id="videoLightbox" onclick="closeVideoLightbox()">
+        <div class="video-lightbox-content" onclick="event.stopPropagation();">
+            <span class="video-lightbox-close" onclick="closeVideoLightbox()">&times;</span>
+            <video id="lightboxVideo" controls autoplay>
+                <source src="" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <div id="lightboxVideoTitle" class="video-lightbox-title"></div>
+        </div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
