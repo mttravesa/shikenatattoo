@@ -100,7 +100,6 @@ function closeVideoLightbox() {
     }
 }
 
-// Cerrar el lightbox de vídeos con la tecla ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeVideoLightbox();
@@ -108,7 +107,36 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================================
-// 4. IDIOMAS (TRADUCCIONES COMPLETAS)
+// 4. EMOJI AL HACER CLIC EN LAS FOTOS DE LA PORTADA
+// ============================================================
+let emojiTimeout;
+
+function showEmoji() {
+    const oldEmoji = document.querySelector('.emoji-popup');
+    if (oldEmoji) {
+        oldEmoji.remove();
+        clearTimeout(emojiTimeout);
+    }
+
+    const emoji = document.createElement('div');
+    emoji.className = 'emoji-popup';
+    emoji.textContent = '🪶';
+    document.body.appendChild(emoji);
+
+    setTimeout(() => {
+        emoji.classList.add('show');
+    }, 10);
+
+    emojiTimeout = setTimeout(() => {
+        emoji.classList.remove('show');
+        setTimeout(() => {
+            emoji.remove();
+        }, 300);
+    }, 1000);
+}
+
+// ============================================================
+// 5. IDIOMAS (CON FREE HAND)
 // ============================================================
 const translations = {
     en: {
@@ -117,6 +145,7 @@ const translations = {
         color: 'Color',
         fine_line: 'Fine Line',
         cover_ups: 'Cover Ups',
+        free_hand: 'Free Hand',
         videos: 'Videos',
         hero_quote: 'Every tattoo tells a story',
         footer_rights: 'All rights reserved'
@@ -127,6 +156,7 @@ const translations = {
         color: 'Color',
         fine_line: 'Fine Line',
         cover_ups: 'Cover Ups',
+        free_hand: 'Free Hand',
         videos: 'Videos',
         hero_quote: 'Jedes Tattoo erzählt eine Geschichte',
         footer_rights: 'Alle Rechte vorbehalten'
@@ -137,6 +167,7 @@ const translations = {
         color: 'Color',
         fine_line: 'Fine Line',
         cover_ups: 'Cover Ups',
+        free_hand: 'Free Hand',
         videos: 'Videos',
         hero_quote: 'Cada tatuaje cuenta una historia',
         footer_rights: 'Todos los derechos reservados'
@@ -175,32 +206,3 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 setLanguage('en');
 
 console.log('✅ Script cargado correctamente');
-
-// ============================================================
-// EMOJI AL HACER CLIC EN LAS FOTOS DE LA PORTADA
-// ============================================================
-let emojiTimeout;
-
-function showEmoji() {
-    const oldEmoji = document.querySelector('.emoji-popup');
-    if (oldEmoji) {
-        oldEmoji.remove();
-        clearTimeout(emojiTimeout);
-    }
-
-    const emoji = document.createElement('div');
-    emoji.className = 'emoji-popup';
-    emoji.textContent = '🪶'; // PLUMA DE AVE
-    document.body.appendChild(emoji);
-
-    setTimeout(() => {
-        emoji.classList.add('show');
-    }, 10);
-
-    emojiTimeout = setTimeout(() => {
-        emoji.classList.remove('show');
-        setTimeout(() => {
-            emoji.remove();
-        }, 300);
-    }, 1000);
-}
