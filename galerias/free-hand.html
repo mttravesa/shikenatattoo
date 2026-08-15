@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Hand - Shikena Tattoo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== WHATSAPP FIJO ===== -->
+    <a href="https://wa.me/34657382039" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-wrapper">
+                    <img src="../images/Logo/logolunanegra.png" alt="Shikena Tattoo" class="logo-img logo-luna">
+                    <img src="../images/Logo/logoletrasnegras.png" alt="Shikena Tattoo" class="logo-img logo-letras">
+                </div>
+            </a>
+            <div class="header-right">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-btn" id="dropdownBtn">
+                        <span id="selectedCategory" data-key="free_hand">Free Hand</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <a href="blackwork.html" data-key="blackwork">Blackwork</a>
+                        <a href="color.html" data-key="color">Color</a>
+                        <a href="fine-line.html" data-key="fine_line">Fine Line</a>
+                        <a href="cover-ups.html" data-key="cover_ups">Cover Ups</a>
+                        <a href="free-hand.html" data-key="free_hand" style="color:#fff; background:rgba(255,255,255,0.1);">Free Hand</a>
+                        <a href="../videos/videos.html" style="border-top:1px solid rgba(255,255,255,0.1); margin-top:5px; padding-top:10px;" data-key="videos">Videos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== GALERÍA FREE HAND ===== -->
+    <section class="section gallery-page">
+        <div class="container">
+            <h1 class="section-title" data-key="free_hand">Free Hand</h1>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="../images/Free Hand/freehand1.png" alt="Free Hand">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="Ampliada">
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Shikena Tattoo - <span data-key="footer_rights">All rights reserved</span></p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
